@@ -6,6 +6,7 @@ import java.util.Date;
 public class Item implements Serializable{
 
 	private static final long serialVersionUID = 1L;
+	private String id;
 	private String subject;
 	private String location;
 	private String content;
@@ -13,9 +14,17 @@ public class Item implements Serializable{
 	private Date endTime;
 	
 	public Item(){
-		subject = location = content = "";
+		id = subject = location = content = "";
 		startTime = new Date();
 		endTime = new Date();
+	}
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 	
 	public String getSubject() {
