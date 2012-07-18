@@ -9,13 +9,14 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import com.axonactive.dto.Account;
+import com.axonactive.dto.Item;
 import com.axonactive.dto.Schedule;
 import com.axonactive.util.Tool;
 
 @ManagedBean(name="calendarBean")
 @SessionScoped
 public class CalendarBean {
-	
+	private Item item;
 	private List<Account> accounts;
 	private List<Schedule> schedules;
 	private int mode;
@@ -29,13 +30,11 @@ public class CalendarBean {
 		 * 3 : month
 		 * */
 		mode = 0;
+		
 	}
 	
 	public void onload(){
-		if(!Tool.isPostBack()){
-			System.out.println("ABC");
-			initalizeDay();
-		}
+		initalizeDay();
 	}
 
 	public void initalizeDay(){
@@ -51,6 +50,7 @@ public class CalendarBean {
 			schedules.add(schedule);
 			calendar.set(Calendar.MINUTE, calendar.get(Calendar.MINUTE) + 30);
 		}
+		
 	}
 	
 	protected void initalizeMonth(){
@@ -82,5 +82,13 @@ public class CalendarBean {
 
 	public void setSchedules(List<Schedule> schedules) {
 		this.schedules = schedules;
+	}
+
+	public Item getItem() {
+		return item;
+	}
+
+	public void setItem(Item item) {
+		this.item = item;
 	}
 }

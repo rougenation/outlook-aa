@@ -1,0 +1,139 @@
+/* CSS Document */
+#menu {
+	width:auto;
+	background:url(../resources/images/site/line01.gif) repeat-x bottom;
+	height:31px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	padding:0px 5px;
+}
+#menu ul li {
+	position:relative;
+	z-index:1;
+}
+#menu ul li, #menu ul li a {
+	float:left;
+	display:block;
+}
+#menu ul li a {
+	height:29px;
+	line-height:29px;
+	padding:0px 7px;
+	color:#0492d0 !important;
+	text-decoration:none;
+	position:relative;
+	z-index:10;
+	outline:none;
+	border-left:solid 1px transparent;
+	border-right:solid 1px transparent;
+	_border-left:none;
+	_border-right:none;
+}
+#menu ul li a:hover {
+	background-color:#e5eff2;
+}
+#menu ul li a.active {
+	background:url(../resources/images/site/line05.gif) repeat-x top !important;
+	background-color:#e5eff2 !important;
+	color:#000 !important;
+	font-weight:bold;
+	height:29px;
+	line-height:29px;
+}
+#menu ul li a.selected {
+	background-color:#fff !important;
+	border-left:solid 1px #bebebe;
+	border-right:solid 1px #bebebe;
+	height:31px;
+	-moz-box-shadow: 0px -5px 5px #CCCCCC;
+	-webkit-box-shadow: 0px -5px 5px #CCCCCC;
+	box-shadow: 0px -5px 5px #CCCCCC;
+}
+#menu ul li.dropdown a span {
+	background:url(../resources/images/site/arrowdown01.gif) no-repeat right center;
+	padding-right:12px;
+}
+#menu ul li.dropdown.setting_ico a span {
+	background:none;
+	padding-right:0px;
+}
+#menu ul li.dropdown a:hover, #menu ul li.setting_ico a:hover {
+	background-color:#e5eff2;
+}
+#menu ul li.setting_ico {
+	background:url(../resources/images/site/line02.gif) no-repeat bottom left;
+}
+#menu ul li.setting_ico a {
+	padding:0px 15px;
+	background:url(../resources/images/site/icons/setting_icon.gif) no-repeat center;
+	padding-top:12px;
+	height:17px;
+}
+#menu ul li.setting_ico a.selected {
+	height:19px;
+}
+#menu .div_dropdown {
+	position:absolute;
+	left:0px;
+	top:30px;
+	border:solid 1px #bebebe;
+	background-color:#fff;
+	white-space:nowrap;
+	padding:10px 0px;
+	display:none;
+	-moz-box-shadow: 0px 1px 5px #CCCCCC;
+	-webkit-box-shadow: 0px 1px 5px #CCCCCC;
+	box-shadow: 0px 1px 5px #CCCCCC;
+	min-width:200px;
+}
+#menu .right .div_dropdown {
+	right:0px !important;
+	left:auto !important;
+}
+#menu .right .div_dropdown.myaccount {
+	right:-30px !important;
+}
+#menu .div_dropdown ul li {
+	_border-bottom:solid 1px #fff;
+}
+#menu .div_dropdown ul li, #menu .div_dropdown ul li a {
+	float:none !important;
+	background:none !important;
+	height:auto !important;
+	line-height:15px !important;
+	display:block;
+} 
+#menu .div_dropdown ul li a {
+	padding:5px 20px;
+}
+#menu .div_dropdown ul li a:hover {
+	background-color:#edf4f6 !important;
+}
+#menu .div_dropdown.myaccount li {
+	padding:0px 10px !important;
+}
+#menu .div_dropdown.myaccount li .text {
+	padding:5px 10px !important;
+	display:block;
+	font-weight:bold;
+}
+#menu .div_dropdown.myaccount li .text small {
+	color:#838383;
+	font-weight:normal;
+}
+#menu .div_dropdown.myaccount li span.link {
+	display:block;
+}
+#menu .div_dropdown.myaccount li a {
+	display:inline-block !important;
+	padding:5px 10px !important;
+}
+#menu .div_dropdown ul li.line {
+	font-size:0px !important;
+	line-height:0px !important;
+	border-bottom:solid 1px #e5e5e5;
+	margin:10px 0px;
+}
+#menu .div_dropdown ul li span.arrow {
+	font-size:9px;
+}
