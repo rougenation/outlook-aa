@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/template/main.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+	<ui:define name="body">	
+		<f:event listener="#{calendarBean.onload}" type="preRenderView"></f:event>
+		<h:form>
+			<table border="1" width="100%">
+				<tr>
+					<ui:repeat var="item" value="#{calendarBean.schedules}">
+						<td>
+							#{item.label}
+						</td>
+					</ui:repeat>
+				</tr>
+				<tr>
+					<ui:repeat var="item" value="#{calendarBean.schedules}">
+						<c:set var="colspan" value="0"></c:set>
+						<c:if test="${}">
+							
+						</c:if>
+						<td>
+							#{item.label}
+						</td>
+					</ui:repeat>
+				</tr>
+			</table>
+			<br/>
+			<h:commandButton value="Click"></h:commandButton>
+		</h:form>
+	</ui:define>
+</ui:composition>
