@@ -2,10 +2,14 @@ package com.axonactive.bean;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import com.axonactive.dto.Account;
 import com.axonactive.dto.TimeCalendar;
@@ -21,6 +25,9 @@ public class WeekBean implements Serializable {
 	private List<Account> accounts;
 	private List<Account> selectedAccont;
 	private List<TimeCalendar> timeCalendar;
+	Calendar calendar;
+	private String nameRoom;
+	private Date display;
 	
 	public WeekBean() {
 		typeRoom = 1;
@@ -35,6 +42,20 @@ public class WeekBean implements Serializable {
 		if (accounts.size() > 0) {
 			processSelectedAccount();
 			processRenderView();
+		}
+	}
+	
+	public void processCalendar(){
+		HttpSession session = (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		if(session.getAttribute("calendar") == null){
+			calendar = Calendar.getInstance();
+			calendar.set(Calendar.HOUR_OF_DAY, 8);
+			calendar.set(Calendar.MINUTE, 0);
+			calendar.set(Calendar.SECOND, 0);
+			display = calendar.getTime();
+			session.setAttribute("calendar", calendar);
+		}else{
+			calendar = (Calendar) session.getAttribute("calendar");
 		}
 	}
 
@@ -98,7 +119,6 @@ public class WeekBean implements Serializable {
 
 	// Go to week before
 	public void goToWeekBefore() {
-
 	}
 
 	// Go to this week
@@ -147,11 +167,29 @@ public class WeekBean implements Serializable {
 		this.selectedAccont = selectedAccont;
 	}
 
+	
 	public List<TimeCalendar> getTimeCalendar() {
 		return timeCalendar;
 	}
+	
 
 	public void setTimeCalendar(List<TimeCalendar> timeCalendar) {
 		this.timeCalendar = timeCalendar;
+	}
+
+	public Date getDisplay() {
+		return display;
+	}
+
+	public void setDisplay(Date display) {
+		this.display = display;
+	}
+
+	public String getNameRoom() {
+		return nameRoom;
+	}
+
+	public void setNameRoom(String nameRoom) {
+		this.nameRoom = nameRoom;
 	}
 }

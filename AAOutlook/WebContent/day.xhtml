@@ -9,12 +9,17 @@
 		<h:form id="day">
 			<f:event listener="#{dayBean.onload}" type="preRenderView"></f:event>
 			<div id="content01">
-				<h1>Meeting room 1 - Thursday 12 July 2012</h1>
+				<h1>#{dayBean.nameRoom} -
+					<h:outputText value="#{dayBean.display}">
+						<f:convertDateTime dateStyle="full"></f:convertDateTime>
+					</h:outputText>
+				</h1>
 				<div class="section01">
 					<table>
 						<tr>
 							<td>View room : <h:selectOneMenu id="selectRoom"
 									styleClass="width01" value="#{dayBean.typeRoom}">
+									<f:selectItem itemLabel="All meeting rom" itemValue="0"></f:selectItem>
 									<f:selectItems var="item" value="#{dayBean.accounts}"
 										itemLabel="#{item.label}" itemValue="#{item.id}"></f:selectItems>
 								</h:selectOneMenu> <h:selectOneMenu id="selectView" styleClass="width02"
@@ -77,30 +82,14 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td class="col4">Meeting room 1</td>
-									<td class="col8"></td>
-									<td class="col8">&nbsp;</td>
-									<td class="col8">&nbsp;</td>
-									<td class="col8">&nbsp;</td>
-									<td class="col8">&nbsp;</td>
-									<td class="col8">&nbsp;</td>
-									<td class="col8">&nbsp;</td>
-									<td class="col8">&nbsp;</td>
-									<td class="col8">&nbsp;</td>
-									<td class="col8">&nbsp;</td>
-									<td class="col8">&nbsp;</td>
-									<td class="col8">&nbsp;</td>
-									<td class="col8">&nbsp;</td>
-									<td class="col8">&nbsp;</td>
-									<td class="col8">&nbsp;</td>
-									<td class="col8">&nbsp;</td>
-									<td class="col8">&nbsp;</td>
-									<td class="col8">&nbsp;</td>
-									<td class="col8">&nbsp;</td>
-									<td class="col8">&nbsp;</td>
-									<td class="col8">&nbsp;</td>
-								</tr>
+								<ui:repeat var="itemAccount" value="#{dayBean.accounts}">
+									<tr>
+										<td class="col4">#{itemAccount.label}</td>
+										<ui:repeat var="itemTime" value="#{dayBean.timeCalendar}">
+											<td class="col8">1</td>
+										</ui:repeat>
+									</tr>
+								</ui:repeat>
 							</tbody>
 						</table>
 					</div>

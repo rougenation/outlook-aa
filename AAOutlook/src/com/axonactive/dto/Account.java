@@ -19,6 +19,11 @@ public class Account implements Serializable{
 		items = new ArrayList<Item>();
 	}
 	
+	public Account(int id, String label){
+		this.id = id;
+		this.label = label;
+	}
+	
 	public Account(int id, String label, String url, String username, String password){
 		this.id = id;
 		this.label = label;
