@@ -4,9 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import javax.faces.context.FacesContext;
-
 import com.axonactive.dto.Account;
 
 public class Tool {
@@ -19,17 +16,13 @@ public class Tool {
 	public static List<Account> getAllAccount(){
 		List<Account> accounts;
 		accounts = new ArrayList<>();
-		accounts.add(new Account(1,"Meeting room 1","mr1", "", ""));
-		accounts.add(new Account(2,"Meeting room 2","mr2", "", ""));
-		accounts.add(new Account(3,"Meeting room 3","mr3", "", ""));
-		accounts.add(new Account(4,"Meeting room 4","mr4", "", ""));
-		accounts.add(new Account(5,"Meeting room 5","mr5", "", ""));
-		accounts.add(new Account(6,"Meeting room 6","mr6", "", ""));
+		accounts.add(new Account(1,"Meeting room 1","mr1@axonactive.vn", "", ""));
+		accounts.add(new Account(2,"Meeting room 2","mr2@axonactive.vn", "", ""));
+		accounts.add(new Account(3,"Meeting room 3","mr3@axonactive.vn", "", ""));
+		accounts.add(new Account(4,"Meeting room 4","mr4@axonactive.vn", "", ""));
+		accounts.add(new Account(5,"Meeting room 5","mr5@axonactive.vn", "", ""));
+		accounts.add(new Account(6,"Meeting room 6","mr6@axonactive.vn", "", ""));
 		return accounts;
-	}
-
-	public static boolean isPostBack() {
-		return FacesContext.getCurrentInstance().isPostback();
 	}
 
 	public static void main(String[] args) {
