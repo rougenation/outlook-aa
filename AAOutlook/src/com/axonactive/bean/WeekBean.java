@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import com.axonactive.dto.Account;
+import com.axonactive.dto.TimeCalendar;
 import com.axonactive.util.Tool;
 
 @ManagedBean(name = "weekBean")
@@ -19,7 +20,8 @@ public class WeekBean implements Serializable {
 	private int typeView; // day - month - week
 	private List<Account> accounts;
 	private List<Account> selectedAccont;
-
+	private List<TimeCalendar> timeCalendar;
+	
 	public WeekBean() {
 		typeRoom = 1;
 		typeView = 1;
@@ -143,5 +145,13 @@ public class WeekBean implements Serializable {
 
 	public void setSelectedAccont(List<Account> selectedAccont) {
 		this.selectedAccont = selectedAccont;
+	}
+
+	public List<TimeCalendar> getTimeCalendar() {
+		return timeCalendar;
+	}
+
+	public void setTimeCalendar(List<TimeCalendar> timeCalendar) {
+		this.timeCalendar = timeCalendar;
 	}
 }

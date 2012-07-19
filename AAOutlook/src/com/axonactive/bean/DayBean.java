@@ -8,20 +8,23 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import com.axonactive.dto.Account;
+import com.axonactive.dto.TimeCalendar;
 import com.axonactive.util.Tool;
 
 @ManagedBean(name = "dayBean")
 @SessionScoped
 public class DayBean implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private int typeRoom; // mr1 - mr6
-	private int typeView; // day - month - week
-	private List<Account> accounts;
-	private List<Account> selectedAccont;
+	private int typeRoom; // mr1 - mr6 (1-6)
+	private int typeView; // day - month - week (1-3)
+	private List<Account> accounts; //list accounts mr1-mr6
+	private List<Account> selectedAccont; //selected account
+	private List<TimeCalendar> timeCalendar;
 
 	public DayBean() {
 		typeRoom = 0;
 		typeView = 1;
+		timeCalendar = new ArrayList<>();
 		accounts = new ArrayList<Account>();
 		selectedAccont = new ArrayList<>();
 	}
@@ -157,5 +160,13 @@ public class DayBean implements Serializable {
 
 	public void setSelectedAccont(List<Account> selectedAccont) {
 		this.selectedAccont = selectedAccont;
+	}
+
+	public List<TimeCalendar> getTimeCalendar() {
+		return timeCalendar;
+	}
+
+	public void setTimeCalendar(List<TimeCalendar> timeCalendar) {
+		this.timeCalendar = timeCalendar;
 	}
 }
