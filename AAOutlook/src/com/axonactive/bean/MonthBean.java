@@ -19,7 +19,8 @@ public class MonthBean implements Serializable {
 
 	public void go() {
 		try {
-
+			System.out.println("Type Room : " + typeRoom);
+			System.out.println("Type View : " + typeView);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

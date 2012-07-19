@@ -1,37 +1,31 @@
 package com.axonactive.util;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.logging.FileHandler;
+import java.util.List;
 
 import javax.faces.context.FacesContext;
 
-import sun.rmi.runtime.Log;
-
-import com.axonactive.bean.DayBean;
+import com.axonactive.dto.Account;
 
 public class Tool {
-
-	public static void writeLog(String msexception) {
-		try {
-			DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-			String realLog = FacesContext.getCurrentInstance()
-					.getExternalContext().getRealPath("/log/");
-			String nameLog = format.format(new Date()) + ".log";
-			realLog += nameLog;
-			FileHandler fh = new FileHandler(realLog);
-
-		} catch (Exception e) {
-			writeLog(e.getMessage());
-		}
-	}
 
 	public static String formatDate(Date date) {
 		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		return format.format(date);
+	}
+	
+	public static List<Account> getAllAccount(){
+		List<Account> accounts;
+		accounts = new ArrayList<>();
+		accounts.add(new Account(1,"Meeting room 1","mr1", "", ""));
+		accounts.add(new Account(2,"Meeting room 2","mr2", "", ""));
+		accounts.add(new Account(3,"Meeting room 3","mr3", "", ""));
+		accounts.add(new Account(4,"Meeting room 4","mr4", "", ""));
+		accounts.add(new Account(5,"Meeting room 5","mr5", "", ""));
+		accounts.add(new Account(6,"Meeting room 6","mr6", "", ""));
+		return accounts;
 	}
 
 	public static boolean isPostBack() {
