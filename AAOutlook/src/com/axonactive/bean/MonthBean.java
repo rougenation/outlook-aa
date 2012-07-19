@@ -56,10 +56,13 @@ public class MonthBean implements Serializable {
 		try {
 			switch (typeView) {
 			case 1:
+				processViewDay();
 				break;
 			case 2:
+				processViewWeek();
 				break;
 			case 3:
+				processViewMonth();
 				break;
 			default:
 				break;
@@ -69,6 +72,18 @@ public class MonthBean implements Serializable {
 		}
 	}
 
+	public void processViewDay(){
+		
+	}
+	
+	public void processViewWeek(){
+		
+	}
+	
+	public void processViewMonth(){
+		
+	}
+	
 	//Go
 	public void go() {
 		try {

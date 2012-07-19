@@ -10,94 +10,109 @@ import javax.faces.bean.SessionScoped;
 import com.axonactive.dto.Account;
 import com.axonactive.util.Tool;
 
-@ManagedBean(name="weekBean")
+@ManagedBean(name = "weekBean")
 @SessionScoped
-public class WeekBean implements Serializable{
+public class WeekBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private int typeRoom; // mr1 - mr6
 	private int typeView; // day - month - week
 	private List<Account> accounts;
 	private List<Account> selectedAccont;
-	
-	public WeekBean(){
+
+	public WeekBean() {
 		typeRoom = 1;
 		typeView = 1;
 		accounts = new ArrayList<Account>();
 		selectedAccont = new ArrayList<>();
 	}
-	
-	//Onload
-	public void onload(){
+
+	// Onload
+	public void onload() {
 		accounts = Tool.getAllAccount();
 		if (accounts.size() > 0) {
 			processSelectedAccount();
 			processRenderView();
 		}
 	}
-	
-	// Process Selected Account
-		public void processSelectedAccount() {
-			try {
-				for (int i = 0; i < accounts.size(); i++) {
-					if (accounts.get(i).getId() == typeRoom) {
-						selectedAccont.clear();
-						selectedAccont.add(accounts.get(i));
-						break;
-					}
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
 
-		// Process Render View
-		public void processRenderView() {
-			try {
-				switch (typeView) {
-				case 1:
-					break;
-				case 2:
-					break;
-				case 3:
-					break;
-				default:
+	// Process Selected Account
+	public void processSelectedAccount() {
+		try {
+			for (int i = 0; i < accounts.size(); i++) {
+				if (accounts.get(i).getId() == typeRoom) {
+					selectedAccont.clear();
+					selectedAccont.add(accounts.get(i));
 					break;
 				}
-			} catch (Exception e) {
-				e.printStackTrace();
 			}
-		}
-	
-	//Go
-	public void go(){
-		try{
-			System.out.println("Type Room : " + typeRoom);
-			System.out.println("Type View : " + typeView);
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	//Go to week before
-	public void goToWeekBefore(){
-		
+
+	// Process Render View
+	public void processRenderView() {
+		try {
+			switch (typeView) {
+			case 1:
+				processViewDay();
+				break;
+			case 2:
+				processViewWeek();
+				break;
+			case 3:
+				processViewMonth();
+				break;
+			default:
+				break;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
-	
-	//Go to this week
-	public void goToThisWeek(){
-		
+
+	public void processViewDay() {
+
 	}
-	
-	//Go to week after
-	public void goToWeekAfter(){
-		
+
+	public void processViewWeek() {
+
+	}
+
+	public void processViewMonth() {
+
+	}
+
+	// Go
+	public void go() {
+		try {
+			System.out.println("Type Room : " + typeRoom);
+			System.out.println("Type View : " + typeView);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// Go to week before
+	public void goToWeekBefore() {
+
+	}
+
+	// Go to this week
+	public void goToThisWeek() {
+
+	}
+
+	// Go to week after
+	public void goToWeekAfter() {
+
 	}
 
 	/*
 	 * ********** SETTER AND GETTER BELOW ***********
 	 */
-	
+
 	public int getTypeRoom() {
 		return typeRoom;
 	}

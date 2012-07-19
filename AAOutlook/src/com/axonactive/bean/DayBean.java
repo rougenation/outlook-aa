@@ -58,10 +58,13 @@ public class DayBean implements Serializable {
 		try {
 			switch (typeView) {
 				case 1:
+					processViewDay();
 					break;
 				case 2:
+					processViewWeek();
 					break;
 				case 3:
+					processViewMonth();
 					break;
 				default:
 					break;
@@ -69,6 +72,18 @@ public class DayBean implements Serializable {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void processViewDay(){
+		
+	}
+	
+	public void processViewWeek(){
+		
+	}
+	
+	public void processViewMonth(){
+		
 	}
 
 	// Go
