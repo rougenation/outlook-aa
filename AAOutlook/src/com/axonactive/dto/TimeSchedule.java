@@ -2,18 +2,18 @@ package com.axonactive.dto;
 
 import java.io.Serializable;
 
-public class Schedule implements Serializable{
+public class TimeSchedule implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	private String label;
 	private long value;
 	
-	public Schedule(){
+	public TimeSchedule(){
 		label = "";
 		value = 0;
 	}
 	
-	public Schedule(String label, long value){
+	public TimeSchedule(String label, long value){
 		this.label = label;
 		this.value = value;
 	}
