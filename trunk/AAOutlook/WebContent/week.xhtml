@@ -13,7 +13,7 @@
 					<table>
 						<tr>
 							<td>View room : 
-							<h:selectOneMenu id="selectAccount" styleClass="width01">
+							<h:selectOneMenu id="selectRoom" styleClass="width01" value="#{weekBean.typeRoom}">
 								<f:selectItem itemLabel="Room 1" itemValue="1"></f:selectItem>
 								<f:selectItem itemLabel="Room 2" itemValue="2"></f:selectItem>
 								<f:selectItem itemLabel="Room 3" itemValue="3"></f:selectItem>
@@ -21,7 +21,7 @@
 								<f:selectItem itemLabel="Room 5" itemValue="5"></f:selectItem>
 								<f:selectItem itemLabel="Room 6" itemValue="6"></f:selectItem>
 							</h:selectOneMenu>
-							<h:selectOneMenu id="selectView" styleClass="width02">
+							<h:selectOneMenu id="selectView" styleClass="width02" value="#{weekBean.typeView}">
 								<f:selectItem itemLabel="View day" itemValue="1"></f:selectItem>
 								<f:selectItem itemLabel="View week" itemValue="2"></f:selectItem>
 								<f:selectItem itemLabel="View month" itemValue="3"></f:selectItem>

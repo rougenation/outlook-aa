@@ -10,6 +10,8 @@ import javax.faces.bean.SessionScoped;
 public class WeekBean implements Serializable{
 
 	private static final long serialVersionUID = 1L;
+	private int typeRoom; // mr1 - mr6
+	private int typeView; // day - month - week
 	
 	public void onload(){
 		
@@ -29,5 +31,21 @@ public class WeekBean implements Serializable{
 	
 	public void goToWeekAfter(){
 		
+	}
+
+	public int getTypeRoom() {
+		return typeRoom;
+	}
+
+	public void setTypeRoom(int typeRoom) {
+		this.typeRoom = typeRoom;
+	}
+
+	public int getTypeView() {
+		return typeView;
+	}
+
+	public void setTypeView(int typeView) {
+		this.typeView = typeView;
 	}
 }
