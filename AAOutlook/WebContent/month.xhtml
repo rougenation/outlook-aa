@@ -6,7 +6,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 	<ui:define name="body">
-		<h:form>
+		<h:form id="month">
+			<f:event listener="#{monthBean.onload}" type="preRenderView"></f:event>
 			<div id="content01_month">
 				<h1>Meeting room 1</h1>
 				<div class="section01">
@@ -14,12 +15,8 @@
 						<tr>
 							<td>View room : <h:selectOneMenu id="selectRoom" value="#{monthBean.typeRoom}"
 									styleClass="width01">
-									<f:selectItem itemLabel="Room 1" itemValue="1"></f:selectItem>
-									<f:selectItem itemLabel="Room 2" itemValue="2"></f:selectItem>
-									<f:selectItem itemLabel="Room 3" itemValue="3"></f:selectItem>
-									<f:selectItem itemLabel="Room 4" itemValue="4"></f:selectItem>
-									<f:selectItem itemLabel="Room 5" itemValue="5"></f:selectItem>
-									<f:selectItem itemLabel="Room 6" itemValue="6"></f:selectItem>
+									<f:selectItems var="item" value="#{monthBean.accounts}"
+										itemLabel="#{item.label}" itemValue="#{item.id}"></f:selectItems>
 								</h:selectOneMenu> 
 								<h:selectOneMenu id="selectView" styleClass="width02" value="#{monthBean.typeView}">
 									<f:selectItem itemLabel="View day" itemValue="1"></f:selectItem>
