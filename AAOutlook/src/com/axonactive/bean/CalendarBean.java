@@ -50,7 +50,6 @@ public class CalendarBean {
 			schedules.add(schedule);
 			calendar.set(Calendar.MINUTE, calendar.get(Calendar.MINUTE) + 30);
 		}
-		
 	}
 	
 	protected void initalizeMonth(){
