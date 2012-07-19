@@ -18,7 +18,12 @@ public class WeekBean implements Serializable{
 	}
 	
 	public void go(){
-		
+		try{
+			System.out.println("Type Room");
+			System.out.println("Type View");
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void goToWeekBefore(){
