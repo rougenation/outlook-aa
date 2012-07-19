@@ -6,7 +6,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 	<ui:define name="body">
-		<h:form>
+		<h:form id="day">
+			<f:event listener="#{dayBean.onload}" type="preRenderView"></f:event>
 			<div id="content01">
 				<h1>Meeting room 1 - Thursday 12 July 2012</h1>
 				<div class="section01">
@@ -14,15 +15,10 @@
 						<tr>
 							<td>View room : <h:selectOneMenu id="selectRoom"
 									styleClass="width01" value="#{dayBean.typeRoom}">
-									<f:selectItem itemLabel="All room" itemValue="0"></f:selectItem>
-									<f:selectItem itemLabel="Room 1" itemValue="1"></f:selectItem>
-									<f:selectItem itemLabel="Room 2" itemValue="2"></f:selectItem>
-									<f:selectItem itemLabel="Room 3" itemValue="3"></f:selectItem>
-									<f:selectItem itemLabel="Room 4" itemValue="4"></f:selectItem>
-									<f:selectItem itemLabel="Room 5" itemValue="5"></f:selectItem>
-									<f:selectItem itemLabel="Room 6" itemValue="6"></f:selectItem>
-								</h:selectOneMenu> 
-								<h:selectOneMenu id="selectView" styleClass="width02" value="#{dayBean.typeView}">
+									<f:selectItems var="item" value="#{dayBean.accounts}"
+										itemLabel="#{item.label}" itemValue="#{item.id}"></f:selectItems>
+								</h:selectOneMenu> <h:selectOneMenu id="selectView" styleClass="width02"
+									value="#{dayBean.typeView}">
 									<f:selectItem itemLabel="View day" itemValue="1"></f:selectItem>
 									<f:selectItem itemLabel="View week" itemValue="2"></f:selectItem>
 									<f:selectItem itemLabel="View month" itemValue="3"></f:selectItem>
@@ -37,20 +33,16 @@
 						<br />
 						<table width="100%">
 							<tr>
-								<td width="30%" align="left">
-									<b>&laquo; <h:commandLink value="Go To Day Before" action="#{dayBean.goToDayBefore}"></h:commandLink></b>
+								<td width="30%" align="left"><b>&laquo; <h:commandLink
+											value="Go To Day Before" action="#{dayBean.goToDayBefore}"></h:commandLink></b>
 								</td>
-								<td width="30%" align="center">
-									<b>
-										<h:commandLink value="Go To Today" action="#{dayBean.goToToday}"></h:commandLink>
-									</b>
-								</td>
-								<td width="30%" align="right">
-									<b>
-										<h:commandLink value="Go To Day After" action="#{dayBean.goToDayAfter}"></h:commandLink>
+								<td width="30%" align="center"><b> <h:commandLink
+											value="Go To Today" action="#{dayBean.goToToday}"></h:commandLink>
+								</b></td>
+								<td width="30%" align="right"><b> <h:commandLink
+											value="Go To Day After" action="#{dayBean.goToDayAfter}"></h:commandLink>
 										&raquo;
-									</b>								
-								</td>
+								</b></td>
 							</tr>
 						</table>
 						<div class="clr"></div>
