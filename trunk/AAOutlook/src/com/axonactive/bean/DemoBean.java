@@ -21,7 +21,6 @@ public class DemoBean {
 		calendar.set(Calendar.MONTH, Calendar.JULY);
 		calendar.set(Calendar.DAY_OF_MONTH, 1);
 		int totalday = calendar.getMaximum(Calendar.DAY_OF_MONTH);
-		
 		for (int i = 1; i <= totalday; i++) {
 			
 		}

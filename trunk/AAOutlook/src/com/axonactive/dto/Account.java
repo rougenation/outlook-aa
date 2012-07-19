@@ -7,7 +7,8 @@ import java.util.List;
 public class Account implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	private String id;
+	private int id;
+	private String label;
 	private String url;
 	private String username;
 	private String password;
@@ -18,17 +19,19 @@ public class Account implements Serializable{
 		items = new ArrayList<Item>();
 	}
 	
-	public Account(String url, String username, String password){
+	public Account(int id, String label, String url, String username, String password){
+		this.id = id;
+		this.label = label;
 		this.url = url;
 		this.username = username;
 		this.password = password;
 	}
 	
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	
@@ -55,5 +58,13 @@ public class Account implements Serializable{
 	}
 	public void setItems(List<Item> items) {
 		this.items = items;
+	}
+
+	public String getLabel() {
+		return label;
+	}
+
+	public void setLabel(String label) {
+		this.label = label;
 	}
 }
