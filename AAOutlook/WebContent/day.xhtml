@@ -85,8 +85,18 @@
 								<ui:repeat var="itemAccount" value="#{dayBean.accounts}">
 									<tr>
 										<td class="col4">#{itemAccount.label}</td>
+										<c:set var="count" value="0"></c:set>
 										<ui:repeat var="itemTime" value="#{dayBean.timeCalendar}">
-											<td class="col8">1</td>
+											<c:choose>
+												<c:when test="${1 == 1}">
+													<c:if test="${}">
+													</c:if>
+													<td><h:outputText value="aa"></h:outputText></td>
+												</c:when>
+												<c:otherwise>
+													<td></td>
+												</c:otherwise>
+											</c:choose>
 										</ui:repeat>
 									</tr>
 								</ui:repeat>
