@@ -1,6 +1,7 @@
 package com.axonactive.bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -19,6 +20,14 @@ public class MonthBean implements Serializable {
 	private List<Account> accounts;
 	private List<Account> selectedAccont;
 
+	public MonthBean(){
+		typeRoom = 0;
+		typeView = 1;
+		accounts = new ArrayList<Account>();
+		selectedAccont = new ArrayList<>();
+	}
+	
+	//Onload
 	public void onload() {
 		accounts = Tool.getAllAccount();
 		if (accounts.size() > 0) {

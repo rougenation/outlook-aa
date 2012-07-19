@@ -20,6 +20,8 @@ public class DayBean implements Serializable {
 	private List<Account> selectedAccont;
 
 	public DayBean() {
+		typeRoom = 0;
+		typeView = 1;
 		accounts = new ArrayList<Account>();
 		selectedAccont = new ArrayList<>();
 	}
