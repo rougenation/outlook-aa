@@ -106,6 +106,10 @@ public class DayBean implements Serializable {
 		}
 	}
 
+	/*
+	 * ********** SETTER AND GETTER BELOW ***********
+	 */
+	
 	public int getTypeRoom() {
 		return typeRoom;
 	}
