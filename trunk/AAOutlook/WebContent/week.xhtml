@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/template/main.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+	<ui:define name="body">
+		<h:form id="week">
+			<div id="content01">
+				<h1>Meeting room 1</h1>
+				<div class="section01">
+					<table>
+						<tr>
+							<td>View room : 
+							<h:selectOneMenu id="selectAccount" styleClass="width01">
+								<f:selectItem itemLabel="Room 1" itemValue="1"></f:selectItem>
+								<f:selectItem itemLabel="Room 2" itemValue="2"></f:selectItem>
+								<f:selectItem itemLabel="Room 3" itemValue="3"></f:selectItem>
+								<f:selectItem itemLabel="Room 4" itemValue="4"></f:selectItem>
+								<f:selectItem itemLabel="Room 5" itemValue="5"></f:selectItem>
+								<f:selectItem itemLabel="Room 6" itemValue="6"></f:selectItem>
+							</h:selectOneMenu>
+							<h:selectOneMenu id="selectView" styleClass="width02">
+								<f:selectItem itemLabel="View day" itemValue="1"></f:selectItem>
+								<f:selectItem itemLabel="View week" itemValue="2"></f:selectItem>
+								<f:selectItem itemLabel="View month" itemValue="3"></f:selectItem>
+							</h:selectOneMenu>
+							</td>
+							<td><h:commandLink styleClass="go">&nbsp;</h:commandLink></td>
+						</tr>
+					</table>
+				</div>
+				<div class="section01">
+					<div class="top_section">
+						<br />
+						<table width="100%">
+							<tr>
+								<td width="30%" align="left">
+									<b>&laquo; <h:commandLink value="Go To Week Before"></h:commandLink></b>
+								</td>
+								<td width="30%" align="center">
+									<b>
+										<h:commandLink value="Go To This Week"></h:commandLink>
+									</b>
+								</td>
+								<td width="30%" align="right">
+									<b>
+										<h:commandLink value="Go To Week After"></h:commandLink>
+										&raquo;
+									</b>								
+								</td>
+							</tr>
+						</table>
+						<div class="clr"></div>
+					</div>
+					<div class="divblock">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0"
+							class="table01">
+							<thead>
+								<tr>
+									<td class="col4">Date</td>
+									<td class="col8">08:00</td>
+									<td class="col8">08:30</td>
+									<td class="col8">09:00</td>
+									<td class="col8">09:30</td>
+									<td class="col8">10:00</td>
+									<td class="col8">10:30</td>
+									<td class="col8">11:00</td>
+									<td class="col8">11:30</td>
+									<td class="col8">12:00</td>
+									<td class="col8">12:30</td>
+									<td class="col8">13:00</td>
+									<td class="col8">13:30</td>
+									<td class="col8">14:00</td>
+									<td class="col8">14:30</td>
+									<td class="col8">15:00</td>
+									<td class="col8">15:30</td>
+									<td class="col8">16:00</td>
+									<td class="col8">16:30</td>
+									<td class="col8">17:00</td>
+									<td class="col8">17:30</td>
+									<td class="col8">18:00</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="col4">Mon_Jun16</td>
+									<td class="col8"></td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+								</tr>
+								<tr style="background-color: #f2f4f6">
+									<td class="col4">Tue_Jun17</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8" style="background-color: #99cc66">&nbsp;</td>
+									<td class="col8" style="background-color: #99cc66">&nbsp;</td>
+									<td class="col8" style="background-color: #99cc66">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+								</tr>
+								<tr>
+									<td class="col4">Wed_Jun18</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+								</tr>
+								<tr style="background-color: #f2f4f6">
+									<td class="col4">Thur_Jun19</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8" style="background-color: #6dd9c4">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+								</tr>
+								<tr>
+									<td class="col4">Fri_Jun20</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+									<td class="col8">&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<br />
+					<table>
+						<tr>
+							<td class="E" width="50px">&nbsp;</td>
+							<td>
+								<div title="External" class="celldiv slots1">&nbsp;External</div>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="I" width="50px">&nbsp;</td>
+							<td>
+								<div title="Internal" class="celldiv slots1">&nbsp;Internal</div>
+							</td>
+						</tr>
+					</table>
+					<div class="clr"></div>
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>

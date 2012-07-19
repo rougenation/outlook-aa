@@ -47,7 +47,7 @@ h1 {font-size:15px;padding-bottom:23px;color:#0492d0;}
 input, textarea, select {font-family:Arial, Helvetica, sans-serifl;font-size:11px;color:#000;}
 input.inputtext01{border:solid 1px #d4d4d4;padding:2px 5px;line-height:14px;}
 input.input_editable {border:solid 1px #d4d4d4;padding:1px 5px;}
-input.button01, a.button01 {overflow:visible;background:#76b1c1 url(images/site/line04.gif) repeat-x left top;border: 1px solid #ababa9;padding:1px 7px;padding:2px 10px 2px 10px \0/;color:#fff !important;cursor:pointer;display:inline-block;font-size:11px;height:20px;}
+input.button01, a.button01 {overflow:visible;background:#76b1c1 url(../resources/images/site/line04.gif) repeat-x left top;border: 1px solid #ababa9;padding:1px 7px;padding:2px 10px 2px 10px \0/;color:#fff !important;cursor:pointer;display:inline-block;font-size:11px;height:20px;}
 /*Safari*/
 @media all and (min-width:0px) {
 body:not(:root:root) input.button01 {padding:0px 7px;}
@@ -97,8 +97,8 @@ input.input_editable.width02 {width:200px !important;}
 
 .fieldset01 #adsearch_dialog .col, .fieldset01 #edit_dialog .col {width:auto;}
 .fieldset01 span.expand_collapse {text-indent:-999px;width:9px;height:9px;display:block;padding:0;margin-top:-63px;_margin-top:3px; margin-left:750px;}
-.fieldset01 span.expand_collapse.open {background:url(images/site/16b_zoomIn.gif) no-repeat center center;}
-.fieldset01 span.expand_collapse.close {background:url(images/site/16b_zoomOut.gif) no-repeat center center;}
+.fieldset01 span.expand_collapse.open {background:url(../resources/images/site/16b_zoomIn.gif) no-repeat center center;}
+.fieldset01 span.expand_collapse.close {background:url(../resources/images/site/16b_zoomOut.gif) no-repeat center center;}
 
 ul.formlist01 li {padding-bottom:8px;*padding-bottom:4px;font-size: 11px;}
 ul.formlist01 li.last {padding:0;margin:0;}
@@ -145,7 +145,7 @@ ul.searchsection input.searchtextbox {width:350px;}
 
 /**Users List**/
 ul.userslist {width:100%;overflow:hidden;}
-ul.userslist li {width:25%;_width:24%;float:left;display:block;background:url(images/site/bullet01.gif) no-repeat 0px 3px;line-height:15px;padding-left:12px;}
+ul.userslist li {width:25%;_width:24%;float:left;display:block;background:url(../resources/images/site/bullet01.gif) no-repeat 0px 3px;line-height:15px;padding-left:12px;}
 ul.userslist.nobullet li {background:none;padding:0;margin:0;}
 ul.userslist.nobullet li a.deleteico {display: inline;*display: inline-block;}
 
@@ -158,8 +158,8 @@ ul.list02 li {float:left;display:block;padding-right:8px;}
 /***Box***/
 /**Box01**/
 .box01_wrapper {border:solid 1px #043d4e;}
-.box01 {width:100%;background:url(images/site/dot01.gif) repeat-y 50% top;}
-.box01 .boxheading {background:#0492d0 url(images/site/dot01.gif) repeat-y 50% top;/*border-bottom:solid 1px #043d4e;*/color:#fff;font-weight:bold;width:100%;}
+.box01 {width:100%;background:url(../resources/images/site/dot01.gif) repeat-y 50% top;}
+.box01 .boxheading {background:#0492d0 url(../resources/images/site/dot01.gif) repeat-y 50% top;/*border-bottom:solid 1px #043d4e;*/color:#fff;font-weight:bold;width:100%;}
 .box01 .boxheading .boxheading_main {padding:0px 10px;}
 .box01 .boxheading .boxheading_main .outside {margin-left:-15px;}
 .box01 .boxcontent {}
@@ -217,8 +217,8 @@ ul.list02 li {float:left;display:block;padding-right:8px;}
 
 /***Expand and Collapse***/
 .expand_collapse {cursor:pointer;padding-left:15px;height:1%;}
-.expand_collapse.open {background:url(images/site/open_img.gif) no-repeat left center;}
-.expand_collapse.close {background:url(images/site/close_img.gif) no-repeat left center;}
+.expand_collapse.open {background:url(../resources/images/site/open_img.gif) no-repeat left center;}
+.expand_collapse.close {background:url(../resources/images/site/close_img.gif) no-repeat left center;}
 
 /***Fieldset***/
 fieldset {border:solid 1px #043d4e;padding:0px 10px;}
@@ -226,16 +226,16 @@ fieldset legend {font-weight:bold;font-size:13px;color:#0492d0;padding:0 2px;}
 fieldset .fieldset01 {margin-top:10px;margin-bottom:15px;}
 
 /***Icon***/
-a.editico {background:url(images/site/icons/edit.png) no-repeat left center;padding-left:16px;}
-a.lockico {background:url(images/site/icons/lock_icon.gif) no-repeat left center;padding-left:16px;}
-a.deleteico {background:url(images/site/icons/delete.png) no-repeat left center;padding-left:16px;}
-a.addico {background:url(images/site/icons/add_icon.gif) no-repeat left center;padding-left:16px;}
-a.calendarico {background:url(images/site/icons/calendar_icon.gif) no-repeat left center;width:16px;display:inline-block;margin-bottom:2px;}
+a.editico {background:url(../resources/images/site/icons/edit.png) no-repeat left center;padding-left:16px;}
+a.lockico {background:url(../resources/images/site/icons/lock_icon.gif) no-repeat left center;padding-left:16px;}
+a.deleteico {background:url(../resources/images/site/icons/delete.png) no-repeat left center;padding-left:16px;}
+a.addico {background:url(../resources/images/site/icons/add_icon.gif) no-repeat left center;padding-left:16px;}
+a.calendarico {background:url(../resources/images/site/icons/calendar_icon.gif) no-repeat left center;width:16px;display:inline-block;margin-bottom:2px;}
 a.editico:hover, a.lockico:hover, a.deleteico:hover, a.addico:hover, a.calendarico:hover {text-decoration:none !important;}
 a.calendarico.position01 {margin-left:4px;}
 .action a {float:left;}
-a.save_link {background:url(images/site/icons/save_icon.gif) no-repeat left;padding-left:16px;}
-a.cancel_link {background:url(images/site/icons/cancel_icon.gif) no-repeat left center;padding-left:16px;}
+a.save_link {background:url(../resources/images/site/icons/save_icon.gif) no-repeat left;padding-left:16px;}
+a.cancel_link {background:url(../resources/images/site/icons/cancel_icon.gif) no-repeat left center;padding-left:16px;}
 
 /***Pagination***/
 div.pagination {padding-bottom:1px;}
@@ -310,7 +310,7 @@ div.pagination span.current {padding: 1px 5px 1px 5px;margin: 0px 2px;border: 1p
 	padding-left:0px;
 }
 .tipmain ul.bullet_arr li {
-	background:url(images/site/bullet02.gif) no-repeat 0px 4px;
+	background:url(../resources/images/site/bullet02.gif) no-repeat 0px 4px;
 	padding-left:8px;
 	list-style-type:none;
 	padding-bottom:5px;
@@ -329,7 +329,7 @@ div.pagination span.current {padding: 1px 5px 1px 5px;margin: 0px 2px;border: 1p
 
 
 .button_search {
-	    background:url(images/site/button_search.png) no-repeat;
+	    background:url(../resources/images/site/button_search.png) no-repeat;
 		width:73px;
 		height:22px;
 		border: none;
@@ -343,7 +343,7 @@ div.pagination span.current {padding: 1px 5px 1px 5px;margin: 0px 2px;border: 1p
 	display: block;
 	width: 72px;
 	height: 25px;
-	background: url(images/site/button_search.png) no-repeat;
+	background: url(../resources/images/site/button_search.png) no-repeat;
 	text-indent: -99999px;
 	padding: -105px 0 0 0;
 }
@@ -351,7 +351,7 @@ div.pagination span.current {padding: 1px 5px 1px 5px;margin: 0px 2px;border: 1p
 	display: block;
 	width: 72px;
 	height: 25px;
-	background: url(images/site/button_search_hover.png) no-repeat;
+	background: url(../resources/images/site/button_search_hover.png) no-repeat;
 	text-indent: -99999px;
 }
 
@@ -360,7 +360,7 @@ div.pagination span.current {padding: 1px 5px 1px 5px;margin: 0px 2px;border: 1p
 	display: block;
 	width: 72px;
 	height: 25px;
-	background: url(images/site/go.png) no-repeat;
+	background: url(../resources/images/site/go.png) no-repeat;
 	text-indent: -99999px;
 	padding: -105px 0 0 0;
 }
@@ -368,25 +368,22 @@ div.pagination span.current {padding: 1px 5px 1px 5px;margin: 0px 2px;border: 1p
 	display: block;
 	width: 72px;
 	height: 25px;
-	background: url(images/site/go_hover.png) no-repeat;
+	background: url(../resources/images/site/go_hover.png) no-repeat;
 	text-indent: -99999px;
 }
-
-
-
 
 .addnew {
 	display: block;
 	width: 72px;
 	height: 25px;
-	background: url(images/site/button_addnew.png) no-repeat;
+	background: url(../resources/images/site/button_addnew.png) no-repeat;
 	text-indent: -99999px;
 }
 .addnew:hover {
 	display: block;
 	width: 72px;
 	height: 25px;
-	background: url(images/site/button_addnew_hover.png) no-repeat;
+	background: url(../resources/images/site/button_addnew_hover.png) no-repeat;
 	text-indent: -99999px;
 }
 
@@ -394,14 +391,14 @@ div.pagination span.current {padding: 1px 5px 1px 5px;margin: 0px 2px;border: 1p
 	display: block;
 	width: 72px;
 	height: 25px;
-	background: url(images/site/button_save.png) no-repeat;
+	background: url(../resources/images/site/button_save.png) no-repeat;
 	text-indent: -99999px;
 }
 .save:hover {
 	display: block;
 	width: 72px;
 	height: 25px;
-	background: url(images/site/button_save_hover.png) no-repeat;
+	background: url(../resources/images/site/button_save_hover.png) no-repeat;
 	text-indent: -99999px;
 }
 
@@ -409,14 +406,14 @@ div.pagination span.current {padding: 1px 5px 1px 5px;margin: 0px 2px;border: 1p
 	display: block;
 	width: 72px;
 	height: 25px;
-	background: url(images/site/button_cancel.png) no-repeat;
+	background: url(../resources/images/site/button_cancel.png) no-repeat;
 	text-indent: -99999px;
 }
 .cancel:hover {
 	display: block;
 	width: 72px;
 	height: 25px;
-	background: url(images/site/button_cancel_hover.png) no-repeat;
+	background: url(../resources/images/site/button_cancel_hover.png) no-repeat;
 	text-indent: -99999px;
 }
 
@@ -425,14 +422,14 @@ div.pagination span.current {padding: 1px 5px 1px 5px;margin: 0px 2px;border: 1p
 	display: block;
 	width: 72px;
 	height: 25px;
-	background: url(images/site/button_login.png) no-repeat;
+	background: url(../resources/images/site/button_login.png) no-repeat;
 	text-indent: -99999px;
 }
 .login:hover {
 	display: block;
 	width: 72px;
 	height: 25px;
-	background: url(images/site/button_login_hover.png) no-repeat;
+	background: url(../resources/images/site/button_login_hover.png) no-repeat;
 	text-indent: -99999px;
 }
 
@@ -440,14 +437,14 @@ div.pagination span.current {padding: 1px 5px 1px 5px;margin: 0px 2px;border: 1p
 	display: block;
 	width: 72px;
 	height: 25px;
-	background: url(images/site/button_ok.png) no-repeat;
+	background: url(../resources/images/site/button_ok.png) no-repeat;
 	text-indent: -99999px;
 }
 .ok:hover {
 	display: block;
 	width: 72px;
 	height: 25px;
-	background: url(images/site/button_ok_hover.png) no-repeat;
+	background: url(../resources/images/site/button_ok_hover.png) no-repeat;
 	text-indent: -99999px;
 }
 
