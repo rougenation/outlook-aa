@@ -1,9 +1,13 @@
 package com.axonactive.bean;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+
+import com.axonactive.dto.Account;
+import com.axonactive.util.Tool;
 
 @ManagedBean(name = "monthBean")
 @SessionScoped
@@ -12,11 +16,51 @@ public class MonthBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int typeRoom; // mr1 - mr6
 	private int typeView; // day - month - week
-	
-	public void onload() {
+	private List<Account> accounts;
+	private List<Account> selectedAccont;
 
+	public void onload() {
+		accounts = Tool.getAllAccount();
+		if (accounts.size() > 0) {
+			processSelectedAccount();
+			processRenderView();
+		}
 	}
 
+	// Process Selected Account
+	public void processSelectedAccount() {
+		try {
+			for (int i = 0; i < accounts.size(); i++) {
+				if (accounts.get(i).getId() == typeRoom) {
+					selectedAccont.clear();
+					selectedAccont.add(accounts.get(i));
+					break;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// Process Render View
+	public void processRenderView() {
+		try {
+			switch (typeView) {
+			case 1:
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			default:
+				break;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	//Go
 	public void go() {
 		try {
 			System.out.println("Type Room : " + typeRoom);
@@ -26,6 +70,7 @@ public class MonthBean implements Serializable {
 		}
 	}
 
+	//Go to month before
 	public void goToMonthBefore() {
 		try {
 
@@ -34,6 +79,7 @@ public class MonthBean implements Serializable {
 		}
 	}
 
+	//Go to this month
 	public void goToThisMonth() {
 		try {
 
@@ -42,6 +88,7 @@ public class MonthBean implements Serializable {
 		}
 	}
 
+	//Go to Month After
 	public void goToMonthAfter() {
 		try {
 
@@ -49,6 +96,10 @@ public class MonthBean implements Serializable {
 			e.printStackTrace();
 		}
 	}
+
+	/*
+	 * ********** SETTER AND GETTER BELOW ***********
+	 */
 
 	public int getTypeRoom() {
 		return typeRoom;
@@ -64,5 +115,21 @@ public class MonthBean implements Serializable {
 
 	public void setTypeView(int typeView) {
 		this.typeView = typeView;
+	}
+
+	public List<Account> getAccounts() {
+		return accounts;
+	}
+
+	public void setAccounts(List<Account> accounts) {
+		this.accounts = accounts;
+	}
+
+	public List<Account> getSelectedAccont() {
+		return selectedAccont;
+	}
+
+	public void setSelectedAccont(List<Account> selectedAccont) {
+		this.selectedAccont = selectedAccont;
 	}
 }

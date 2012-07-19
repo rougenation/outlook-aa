@@ -38,6 +38,10 @@ public class WeekBean implements Serializable{
 		
 	}
 
+	/*
+	 * ********** SETTER AND GETTER BELOW ***********
+	 */
+	
 	public int getTypeRoom() {
 		return typeRoom;
 	}
