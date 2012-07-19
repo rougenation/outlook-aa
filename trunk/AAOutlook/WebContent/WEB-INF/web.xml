@@ -5,7 +5,7 @@
 	id="WebApp_ID" version="2.5">
 	<display-name>TheChange</display-name>
 	<welcome-file-list>
-		<welcome-file>index.xhtml</welcome-file>
+		<welcome-file>day.xhtml</welcome-file>
 	</welcome-file-list>
 	<servlet>
 		<servlet-name>Faces Servlet</servlet-name>

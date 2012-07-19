@@ -27,7 +27,7 @@
 									<f:selectItem itemLabel="View month" itemValue="3"></f:selectItem>
 								</h:selectOneMenu>
 							</td>
-							<td><h:commandLink styleClass="go">&nbsp;</h:commandLink></td>
+							<td><h:commandLink styleClass="go" action="#{dayBean.go}">&nbsp;</h:commandLink></td>
 						</tr>
 					</table>
 				</div>
@@ -37,16 +37,16 @@
 						<table width="100%">
 							<tr>
 								<td width="30%" align="left">
-									<b>&laquo; <h:commandLink value="Go To dAY Before"></h:commandLink></b>
+									<b>&laquo; <h:commandLink value="Go To Day Before" action="#{dayBean.goToDayBefore}"></h:commandLink></b>
 								</td>
 								<td width="30%" align="center">
 									<b>
-										<h:commandLink value="Go To Today"></h:commandLink>
+										<h:commandLink value="Go To Today" action="#{dayBean.goToToday}"></h:commandLink>
 									</b>
 								</td>
 								<td width="30%" align="right">
 									<b>
-										<h:commandLink value="Go To Day After"></h:commandLink>
+										<h:commandLink value="Go To Day After" action="#{dayBean.goToDayAfter}"></h:commandLink>
 										&raquo;
 									</b>								
 								</td>
