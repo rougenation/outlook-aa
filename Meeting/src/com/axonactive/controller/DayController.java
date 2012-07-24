@@ -2,6 +2,7 @@ package com.axonactive.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -26,27 +27,39 @@ public class DayController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			if(request.getParameter("mode") != null){
-				String mode = request.getParameter("mode").toString();
-				if(mode.equals("view")){
-					view(request, response);
-				}
+			if(request.getParameter("day") == null || request.getParameter("month") == null || request.getParameter("year") == null){
+				Calendar calendar = Calendar.getInstance();
+				System.out.println("ABC");
+				view(request,response,calendar);
+				return;
+			}else{
+				int day = Integer.parseInt(request.getParameter("day").toString());
+				int month = Integer.parseInt(request.getParameter("month").toString());
+				int year = Integer.parseInt(request.getParameter("year").toString());
+				Calendar calendar = Calendar.getInstance();
+				calendar.set(Calendar.DAY_OF_MONTH, day);
+				calendar.set(Calendar.MONTH, month - 1);
+				calendar.set(Calendar.YEAR, year);
+				System.out.println("DEF");
+				view(request,response,calendar);
+				return;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	protected void view(HttpServletRequest request, HttpServletResponse response){
+	protected void view(HttpServletRequest request, HttpServletResponse response, Calendar calendar){
 		try{
 			List<Account> accounts = new ArrayList<Account>();
 			accounts = Tool.getListAccount();
+			
 			List<Time> times = new ArrayList<Time>();
-			times = Tool.getListTime();
+			times = Tool.getListTime(calendar);
 			
-			request.setAttribute("times", times); //set attribute accounts
+			request.setAttribute("times", times); //set attribute times
 			request.setAttribute("accounts", accounts); //set attribute accounts
-			
+			request.setAttribute("calendar", calendar); // set attribute calendar
 			ServletContext context = getServletContext();
 			RequestDispatcher dispatcher = context.getRequestDispatcher("/day.jsp");
 			dispatcher.forward(request,response);

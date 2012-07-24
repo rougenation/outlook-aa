@@ -28,10 +28,9 @@ import com.axonactive.dto.Time;
 
 public class Tool {
 
-	public static List<Time> getListTime() {
+	public static List<Time> getListTime(Calendar calendar) {
 		List<Time> times = new ArrayList<Time>();
 		try{
-			Calendar calendar = Calendar.getInstance();
 			SimpleDateFormat format = new SimpleDateFormat("HH:mm");
 			calendar.set(Calendar.HOUR_OF_DAY, 8);
 			calendar.set(Calendar.MINUTE, 0);
@@ -89,6 +88,7 @@ public class Tool {
 							node.getChildText("password")));
 				}
 			}
+			System.out.println("Size : " + accounts.size());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

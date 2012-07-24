@@ -1,3 +1,5 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Calendar"%>
 <%@page import="com.axonactive.dto.Time"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.axonactive.dto.Account"%>
@@ -18,17 +20,20 @@
 		int index = 0;
 		List<Account> accounts = new ArrayList<Account>();
 		List<Time> times = new ArrayList<Time>();
+		Calendar calendar = Calendar.getInstance();
+		if(request.getAttribute("calendar") != null){
+			calendar = (Calendar)request.getAttribute("calendar");
+		}
 		if(request.getAttribute("accounts") != null){
-			System.out.println("Account : ok - Size : " + accounts.size());
 			accounts = (List<Account>)request.getAttribute("accounts");
 			if(request.getAttribute("times") != null){
-				System.out.println("Time : ok - Size : " + times.size());
 				times = (List<Time>)request.getAttribute("times");
 			}
 		}else{
 			System.out.println("Else");
-			//do something
 		}
+		
+		System.out.println("Calendar : " + calendar.getTime());
 	%>
 	<div class="wrapper">
 		<table border="0" class="tbl" cellpadding="0" cellspacing="0"
