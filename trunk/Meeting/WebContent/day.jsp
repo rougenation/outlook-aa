@@ -1,3 +1,7 @@
+<%@page import="com.axonactive.dto.Time"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.axonactive.dto.Account"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -9,6 +13,20 @@
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
 </head>
 <body>
+	<%
+		List<Account> accounts = new ArrayList<Account>();
+		List<Time> times = new ArrayList<Time>();
+		if(request.getAttribute("accounts") != null){
+			System.out.println("Account : ok - Size : " + accounts.size());
+			accounts = (List<Account>)request.getAttribute("accounts");
+			if(request.getAttribute("times") != null){
+				System.out.println("Time : ok - Size : " + times.size());
+				times = (List<Time>)request.getAttribute("times");
+			}
+		}else{
+			//do something
+		}
+	%>
 	<div class="wrapper">
 		<table border="0" class="tbl" cellpadding="0" cellspacing="0"
 			width="100%">
@@ -40,49 +58,19 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td>
-						<div class="celldiv">Meeting room 1</div>
-					</td>
-					<td><div class="celldiv">...</div></td>
-					<td colspan="2" class="time"><div class="celldiv">Video Game (8:30 - 9:00)</div></td>				
-					<td><div class="celldiv">...</div></td>
-					<td><div class="celldiv">...</div></td>
-					<td><div class="celldiv">...</div></td>
-					<td><div class="celldiv">...</div></td>
-					<td><div class="celldiv">...</div></td>
-					<td colspan="2" class="time"><div class="celldiv">KFC (15:30 - 16:30)</div></td>
-					<td><div class="celldiv">...</div></td>
-					<td><div class="celldiv">...</div></td>
-					<td><div class="celldiv">...</div></td>
-					<td><div class="celldiv">...</div></td>
-					<td><div class="celldiv">...</div></td>
-					<td colspan="3" class="time">
-						<div class="celldiv">KFC (15:30 - 16:30)</div>
-					</td>
-					<td><div class="celldiv">...</div></td>
-					<td><div class="celldiv">...</div></td>
-					<td><div class="celldiv">...</div></td>
-				</tr>
-				<tr>
-					<td><div class="celldiv">Meeting room 2</div></td>
-					<td><div class="celldiv">...</div></td>
-					<td><div class="celldiv">...</div></td>
-					<td><div class="celldiv">...</div></td>
-					<td><div class="celldiv">...</div></td>
-					<td colspan="2" class="time"><div class="celldiv">Fishing (10:00 - 10:30)</div></td>		
-					<td><div class="celldiv">...</div></td>
-					<td><div class="celldiv">...</div></td>
-					<td><div class="celldiv">...</div></td>
-					<td><div class="celldiv">...</div></td>
-					<td colspan="3" class="time"><div class="celldiv">Meeting (13:00 - 14:00)</div></td>
-					<td><div class="celldiv">...</div></td>
-					<td><div class="celldiv">...</div></td>
-					<td><div class="celldiv">...</div></td>
-					<td><div class="celldiv">...</div></td>
-					<td><div class="celldiv">...</div></td>
-					<td><div class="celldiv">...</div></td>
-					<td><div class="celldiv">...</div></td>
-					<td><div class="celldiv">...</div></td>
+				<%
+				if(accounts.size() > 0){
+					for(int i = 0; i < accounts.size(); i++){
+						for(int j = 0; j < times.size(); j++){
+							//do something
+						}
+					}
+				}else{
+				%>
+					<td colspan="22">Nothing to view</td>
+				<%	
+				}
+				%>
 				</tr>
 			</tbody>
 		</table>
