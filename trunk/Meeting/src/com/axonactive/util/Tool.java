@@ -71,13 +71,14 @@ public class Tool {
 		return meetings;
 	}
 
-	public static List<Account> getListAccount() {
+	public static List<Account> getListAccount(String file_url) {
 		List<Account> accounts = new ArrayList<Account>();
 		try {
 			SAXBuilder builder = new SAXBuilder();
-			File xmlFile = new File("src/account.xml");
+			File xmlFile = new File(file_url);
 			Element node;
 			if (xmlFile.exists()) {
+				System.out.println("exist");
 				Document document = builder.build(xmlFile);
 				Element root = document.getRootElement();
 				List list = root.getChildren("account");
