@@ -10,14 +10,14 @@ html,body{
 }
 
 .tbl{
-	border-left: 1px solid silver;
-	border-bottom: 1px solid silver;
+	border-left: 1px solid #EAEAEA;
+	border-bottom: 1px solid #EAEAEA;
 }
 
 .tbl td{
 	padding: 4px 5px;
-	border-top: 1px solid silver;
-	border-right: 1px solid silver;
+	border-top: 1px solid #EAEAEA;
+	border-right: 1px solid #EAEAEA;
 	text-align: center;
 }
 
@@ -27,6 +27,11 @@ html,body{
 	padding: 4px 5px;
 	border-top: 1px solid silver;
 	border-right: 1px solid silver;
+}
+
+.celldiv{
+	height: 18px;
+	overflow: hidden;
 }
 
 .time{
