@@ -40,45 +40,49 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td>Meeting room 1</td>
-					<td>...</td>
-					<td colspan="2" class="time">Video Game (8:30 - 9:00)</td>				
-					<td>...</td>
-					<td>...</td>
-					<td>...</td>
-					<td>...</td>
-					<td>...</td>
-					<td colspan="2" class="time">KFC (15:30 - 16:30)</td>
-					<td>...</td>
-					<td>...</td>
-					<td>...</td>
-					<td>...</td>
-					<td>...</td>
-					<td colspan="3" class="time">KFC (15:30 - 16:30)</td>
-					<td>...</td>
-					<td>...</td>
-					<td>...</td>
+					<td>
+						<div class="celldiv" title="Meeting room 1">Meeting room 1</div>
+					</td>
+					<td><div class="celldiv">...</div></td>
+					<td colspan="2" class="time"><div class="celldiv">Video Game (8:30 - 9:00)</div></td>				
+					<td><div class="celldiv">...</div></td>
+					<td><div class="celldiv">...</div></td>
+					<td><div class="celldiv">...</div></td>
+					<td><div class="celldiv">...</div></td>
+					<td><div class="celldiv">...</div></td>
+					<td colspan="2" class="time"><div class="celldiv">KFC (15:30 - 16:30)</div></td>
+					<td><div class="celldiv">...</div></td>
+					<td><div class="celldiv">...</div></td>
+					<td><div class="celldiv">...</div></td>
+					<td><div class="celldiv">...</div></td>
+					<td><div class="celldiv">...</div></td>
+					<td colspan="3" class="time">
+						<div class="celldiv">KFC (15:30 - 16:30)</div>
+					</td>
+					<td><div class="celldiv">...</div></td>
+					<td><div class="celldiv">...</div></td>
+					<td><div class="celldiv">...</div></td>
 				</tr>
 				<tr>
-					<td>Meeting room 2</td>
-					<td>...</td>
-					<td>...</td>
-					<td>...</td>
-					<td>...</td>
-					<td colspan="2" class="time">Fishing (10:00 - 10:30)</td>		
-					<td>...</td>
-					<td>...</td>
-					<td>...</td>
-					<td>...</td>
-					<td colspan="3" class="time">Meeting (13:00 - 14:00)</td>
-					<td>...</td>
-					<td>...</td>
-					<td>...</td>
-					<td>...</td>
-					<td>...</td>
-					<td>...</td>
-					<td>...</td>
-					<td>...</td>
+					<td><div class="celldiv">Meeting room 2</div></td>
+					<td><div class="celldiv">...</div></td>
+					<td><div class="celldiv">...</div></td>
+					<td><div class="celldiv">...</div></td>
+					<td><div class="celldiv">...</div></td>
+					<td colspan="2" class="time"><div class="celldiv">Fishing (10:00 - 10:30)</div></td>		
+					<td><div class="celldiv">...</div></td>
+					<td><div class="celldiv">...</div></td>
+					<td><div class="celldiv">...</div></td>
+					<td><div class="celldiv">...</div></td>
+					<td colspan="3" class="time"><div class="celldiv">Meeting (13:00 - 14:00)</div></td>
+					<td><div class="celldiv">...</div></td>
+					<td><div class="celldiv">...</div></td>
+					<td><div class="celldiv">...</div></td>
+					<td><div class="celldiv">...</div></td>
+					<td><div class="celldiv">...</div></td>
+					<td><div class="celldiv">...</div></td>
+					<td><div class="celldiv">...</div></td>
+					<td><div class="celldiv">...</div></td>
 				</tr>
 			</tbody>
 		</table>
