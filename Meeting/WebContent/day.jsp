@@ -14,6 +14,8 @@
 </head>
 <body>
 	<%
+		//use for meeting
+		int index = 0;
 		List<Account> accounts = new ArrayList<Account>();
 		List<Time> times = new ArrayList<Time>();
 		if(request.getAttribute("accounts") != null){
@@ -24,6 +26,7 @@
 				times = (List<Time>)request.getAttribute("times");
 			}
 		}else{
+			System.out.println("Else");
 			//do something
 		}
 	%>
