@@ -19,6 +19,15 @@ public class Meeting implements Serializable{
 		endTime = new Date();
 	}
 	
+	public Meeting(String id, String subject, String location, String content, Date startTime, Date endTime){
+		this.id = id;
+		this.subject = subject;
+		this.location = location;
+		this.content = content;
+		this.startTime = startTime;
+		this.endTime = endTime;
+	}
+	
 	public String getId() {
 		return id;
 	}
