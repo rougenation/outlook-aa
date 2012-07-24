@@ -3,13 +3,7 @@
 	<account>
 		<id>1</id>
 		<name>Meeting room 1</name>
-		<username>username</username>
-		<password>password</password>
-	</account>
-	<account>
-		<id>2</id>
-		<name>Meeting room 2</name>
-		<username>username</username>
-		<password>password</password>
-	</account>
+		<username>huytranquoc</username>
+		<password>PN+JHBF5aZ</password>
+	</account>	
 </accounts>
