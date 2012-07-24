@@ -16,12 +16,21 @@ public class test {
 	public static void main(String[] args) {
 		read();
 	}
+	
+	public static void update(String id){
+		try{
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	public static void read() {
 		try {
+			System.out.println("ABC");
 			List<Account> accounts = new ArrayList<Account>();
 			SAXBuilder builder = new SAXBuilder();
-			File xmlFile = new File("src/data.xml");
+			File xmlFile = new File("src/account.xml");
 			Account account = null;
 			Element node;
 			if (xmlFile.exists()) {
@@ -36,6 +45,7 @@ public class test {
 					account.setUsername(node.getChildText("username"));
 					account.setPassword(node.getChildText("password"));
 					accounts.add(account);
+					System.out.println("A");
 				}
 			}
 
