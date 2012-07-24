@@ -1,5 +1,6 @@
 package com.axonactive.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -51,9 +52,10 @@ public class DayController extends HttpServlet {
 	
 	protected void view(HttpServletRequest request, HttpServletResponse response, Calendar calendar){
 		try{
+			String file_url = request.getServletContext().getRealPath("/WEB-INF/account.xml");
 			List<Account> accounts = new ArrayList<Account>();
-			accounts = Tool.getListAccount();
-			
+			System.out.println(file_url);
+			accounts = Tool.getListAccount(file_url);
 			List<Time> times = new ArrayList<Time>();
 			times = Tool.getListTime(calendar);
 			
