@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import microsoft.exchange.webservices.data.Appointment;
 import microsoft.exchange.webservices.data.CalendarView;
@@ -21,6 +22,8 @@ import microsoft.exchange.webservices.data.WellKnownFolderName;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
+
+import sun.java2d.pipe.SpanShapeRenderer.Simple;
 
 import com.axonactive.dto.Account;
 import com.axonactive.dto.Meeting;
@@ -53,17 +56,37 @@ public class Tool {
 		List<Meeting> meetings = new ArrayList<Meeting>();
 		try {
 			ExchangeService service = new ExchangeService();
-			ExchangeCredentials wc = new WebCredentials("huytranquoc", "PN+JHBF5aZ");
+			ExchangeCredentials wc = new WebCredentials(username, password);
 			service.setCredentials(wc);
 			service.setUrl(new URI("https://axonvn-msvr2.teledata.local/EWS/Exchange.asmx"));
-
+			
+			start.setHours(1);
+			start.setMinutes(0);
+			end.setHours(11);
+			end.setMinutes(0);
+			System.out.println("Start : " + start);
+			System.out.println("End : " + end);
+			
 			CalendarView calendar = new CalendarView(start, end);
 			FindItemsResults<Appointment> findCalendar = service.findAppointments(
 					new FolderId(WellKnownFolderName.Calendar, new Mailbox("mr1@axonactive.vn")), calendar);
-
+			SimpleDateFormat simp = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+			Calendar temp = Calendar.getInstance();
+			Meeting meeting;
 			for (Appointment app : findCalendar.getItems()) {
-				meetings.add(new Meeting(app.getId().getUniqueId(), app.getSubject(), app.getLocation(), 
-						"", app.getStart(), app.getEnd()));
+				meeting = new Meeting(app.getId().getUniqueId(), app.getSubject(), app.getLocation(),"");
+				temp.setTime(app.getStart());
+				temp.add(Calendar.HOUR_OF_DAY, 7);
+				meeting.setStartTime(temp.getTime());
+				
+				temp.setTime(app.getEnd());
+				temp.add(Calendar.HOUR_OF_DAY, 7);
+				meeting.setEndTime(temp.getTime());
+				
+				meetings.add(meeting);
+				
+				System.out.println("A : " +app.getTimeZone() + " - " + simp.format(app.getStart()) + "-" + simp.format(app.getEnd()));
+				System.out.println("B : " +app.getTimeZone() + " - " + app.getStart() + "-" + app.getEnd());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

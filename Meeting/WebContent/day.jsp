@@ -1,3 +1,6 @@
+<%@page import="java.text.DateFormat"%>
+<%@page import="com.axonactive.util.Tool"%>
+<%@page import="com.axonactive.dto.Meeting"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="com.axonactive.dto.Time"%>
@@ -17,6 +20,7 @@
 <body>
 	<%
 		//use for meeting
+		DateFormat df = new SimpleDateFormat("HH:mm");
 		int index = 0;
 		List<Account> accounts = new ArrayList<Account>();
 		List<Time> times = new ArrayList<Time>();
@@ -68,9 +72,46 @@
 				<tr>
 				<%
 				if(accounts.size() > 0){
+					Account account;
+					
+					List<Meeting> meetings = new ArrayList<Meeting>();
 					for(int i = 0; i < accounts.size(); i++){
-						for(int j = 0; j < times.size(); j++){
-							//do something
+						account = accounts.get(i);
+						meetings = Tool.getListMeeting(account.getUsername(), account.getPassword(), calendar.getTime(), calendar.getTime());
+				%>
+						<td><%=accounts.get(i).getName()%></td>
+				<%
+						if(meetings.size() <= 0){
+							for(int j = 0; j < times.size(); j++){
+								out.print("<td><div class='celldiv'>...</div></td>");
+							}
+						}else{
+							long beetween = 0;
+							int minutes = 0;
+							int colspan = 0;
+							String start = "";
+							Meeting meeting = meetings.get(index);
+							for(int j = 0; j < times.size(); j++){
+								start = df.format(meeting.getStartTime());
+								System.out.println("name : " + meeting.getSubject());
+								System.out.println("Start : " + start + "-" + times.get(j).getLabel());
+								if(start.equals(times.get(j).getLabel())){
+									System.out.println("aa");
+									System.out.println("a : " + meeting.getEndTime() + "-" + meeting.getStartTime());
+									beetween = meeting.getEndTime().getTime() - meeting.getStartTime().getTime();
+									minutes = (int)(beetween / 1000 / 60);
+									System.out.println("Minutes : " + minutes);
+									colspan = minutes / 30;
+									colspan += 1;
+									out.print("<td background='#FFD76E' colspan='" + colspan + "'><div class='celldiv'>" + meeting.getSubject() + "</div></td>");
+									j += colspan - 1;
+									if(meetings.size() > index){
+										index++;
+									}
+								}else{
+									out.print("<td><div class='celldiv'>...</div></td>");
+								}
+							}
 						}
 					}
 				}else{

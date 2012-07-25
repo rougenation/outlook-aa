@@ -30,18 +30,19 @@ public class DayController extends HttpServlet {
 		try {
 			if(request.getParameter("day") == null || request.getParameter("month") == null || request.getParameter("year") == null){
 				Calendar calendar = Calendar.getInstance();
-				System.out.println("ABC");
+				calendar.set(Calendar.HOUR_OF_DAY, 0);
+				calendar.set(Calendar.MINUTE, 0);
+				calendar.set(Calendar.SECOND, 0);
 				view(request,response,calendar);
+				System.out.println("if");
 				return;
 			}else{
+				System.out.println("else");
 				int day = Integer.parseInt(request.getParameter("day").toString());
 				int month = Integer.parseInt(request.getParameter("month").toString());
 				int year = Integer.parseInt(request.getParameter("year").toString());
 				Calendar calendar = Calendar.getInstance();
-				calendar.set(Calendar.DAY_OF_MONTH, day);
-				calendar.set(Calendar.MONTH, month - 1);
-				calendar.set(Calendar.YEAR, year);
-				System.out.println("DEF");
+				calendar.set(year, month - 1, day,0,0,0);
 				view(request,response,calendar);
 				return;
 			}

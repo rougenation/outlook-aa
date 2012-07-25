@@ -15,7 +15,6 @@ html,body{
 }
 
 .tbl td{
-	padding: 4px 5px;
 	border-top: 1px solid #EAEAEA;
 	border-right: 1px solid #EAEAEA;
 	text-align: center;
@@ -32,6 +31,7 @@ html,body{
 .celldiv{
 	height: 18px;
 	overflow: hidden;
+	padding: 2px 5px;
 }
 
 .time{

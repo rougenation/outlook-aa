@@ -3,6 +3,7 @@ package com.axonactive.controller;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import org.jdom2.Document;
@@ -14,7 +15,23 @@ import com.axonactive.dto.Account;
 public class test {
 
 	public static void main(String[] args) {
-		read();
+		
+		Calendar cal1 = Calendar.getInstance();
+		cal1.set(Calendar.HOUR_OF_DAY, 10);
+		cal1.set(Calendar.MINUTE, 0);
+		cal1.set(Calendar.SECOND, 0);
+		System.out.println(cal1.get(Calendar.MINUTE));
+		
+		Calendar cal2 = Calendar.getInstance();
+		cal2.set(Calendar.HOUR_OF_DAY, 10);
+		cal2.set(Calendar.MINUTE, 30);
+		cal2.set(Calendar.SECOND, 0);
+		System.out.println(cal2.get(Calendar.MINUTE));
+		
+		long beetween = cal2.getTime().getTime() - cal1.getTime().getTime();
+		int minutes = (int)( beetween / 1000 / 60);
+		System.out.println("minutes : " + minutes);
+		//read();
 	}
 	
 	public static void update(String id){
