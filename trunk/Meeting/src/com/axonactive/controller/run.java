@@ -86,7 +86,7 @@ public class run {
 				System.out.println("Subject : " + item.getSubject()
 						+ " - Location : " + item.getLocation()
 						+ " - Start time : " + simp.format(item.getStart())
-						+ " - End time : " + simp.format(item.getEnd()));
+						+ " - End time : " + simp.format(item.getEnd()) + " - Time zone : " + item.getTimeZone());
 			}
 
 		} catch (Exception e) {
