@@ -79,7 +79,7 @@
 						account = accounts.get(i);
 						meetings = Tool.getListMeeting(account.getUsername(), account.getPassword(), calendar.getTime(), calendar.getTime());
 				%>
-						<td><%=accounts.get(i).getName()%></td>
+						<td><div class='celldiv'><%=accounts.get(i).getName()%></div></td>
 				<%
 						if(meetings.size() <= 0){
 							for(int j = 0; j < times.size(); j++){
@@ -103,7 +103,7 @@
 									System.out.println("Minutes : " + minutes);
 									colspan = minutes / 30;
 									colspan += 1;
-									out.print("<td background='#FFD76E' colspan='" + colspan + "'><div class='celldiv'>" + meeting.getSubject() + "</div></td>");
+									out.print("<td class='time' colspan='" + colspan + "'><div class='celldiv'>" + meeting.getSubject() + "</div></td>");
 									j += colspan - 1;
 									if(meetings.size() > index){
 										index++;
