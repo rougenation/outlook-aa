@@ -34,7 +34,10 @@
 				times = (List<Time>)request.getAttribute("times");
 			}
 		}else{
-			System.out.println("Else");
+			String para = "";
+			para = String.format("day=%s&month=%s&year=%s", 
+					calendar.get(Calendar.DAY_OF_MONTH) , calendar.get(Calendar.MONTH) - 1,calendar.get(Calendar.YEAR));
+			response.sendRedirect("day?" + para);
 		}
 		
 		System.out.println("Calendar : " + calendar.getTime());
