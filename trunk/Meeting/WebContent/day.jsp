@@ -5,7 +5,7 @@
 <%@page import="java.util.Calendar"%>
 <%@page import="com.axonactive.dto.Time"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.axonactive.dto.Account"%>
+<%@page import="com.axonactive.dto.Room"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -37,14 +37,14 @@
 		//use for meeting
 		DateFormat df = new SimpleDateFormat("HH:mm");
 		DateFormat display = DateFormat.getDateInstance(DateFormat.FULL);
-		List<Account> accounts = new ArrayList<Account>();
+		List<Room> rooms = new ArrayList<Room>();
 		List<Time> times = new ArrayList<Time>();
 		Calendar calendar = Calendar.getInstance();
 		if(request.getAttribute("calendar") != null){
 			calendar = (Calendar)request.getAttribute("calendar");
 		}
-		if(request.getAttribute("accounts") != null){
-			accounts = (List<Account>)request.getAttribute("accounts");
+		if(request.getAttribute("rooms") != null){
+			rooms = (List<Room>)request.getAttribute("rooms");
 			if(request.getAttribute("times") != null){
 				times = (List<Time>)request.getAttribute("times");
 			}
@@ -53,7 +53,7 @@
 			para = String.format("day=%s&month=%s&year=%s", 
 					calendar.get(Calendar.DAY_OF_MONTH) , calendar.get(Calendar.MONTH) + 1,calendar.get(Calendar.YEAR));
 			response.sendRedirect("day?" + para);
-		}				
+		}
 	%>
 	<div class="wrapper">
 		<span id="display-time">
@@ -72,24 +72,24 @@
 					String para = "";
 				%>
 				<td width="30%" align="left">
-					<%						
+					<%
 						para = String.format("day=%s&month=%s&year=%s", 
-								calendar.get(Calendar.DAY_OF_MONTH) - 1, calendar.get(Calendar.MONTH) + 1,calendar.get(Calendar.YEAR));
+											calendar.get(Calendar.DAY_OF_MONTH) - 1, calendar.get(Calendar.MONTH) + 1,calendar.get(Calendar.YEAR));
 					%>
 					<a class="link" href="day?<%=para%>">&laquo; Go to day before</a>
 				</td>
 				<td width="40%" align="center">
 					<%
 						Calendar today = Calendar.getInstance();
-						para = String.format("day=%s&month=%s&year=%s", 
-								today.get(Calendar.DAY_OF_MONTH) , today.get(Calendar.MONTH) + 1,today.get(Calendar.YEAR));
+									para = String.format("day=%s&month=%s&year=%s", 
+											today.get(Calendar.DAY_OF_MONTH) , today.get(Calendar.MONTH) + 1,today.get(Calendar.YEAR));
 					%>
 					<a class="link" href="day?<%=para%>">Go to today</a>
 				</td>
 				<td width="30%" align="right">
-					<%						
+					<%
 						para = String.format("day=%s&month=%s&year=%s", 
-								calendar.get(Calendar.DAY_OF_MONTH) + 1, calendar.get(Calendar.MONTH) + 1,calendar.get(Calendar.YEAR));
+											calendar.get(Calendar.DAY_OF_MONTH) + 1, calendar.get(Calendar.MONTH) + 1,calendar.get(Calendar.YEAR));
 					%>
 					<a class="link" href="day?<%=para%>">Go to day after &raquo;</a>
 				</td>
@@ -124,17 +124,20 @@
 				</tr>
 			</thead>
 			<tbody>
+				
+				<%
+					if(rooms.size() > 0){
+						Room account;					
+						List<Meeting> meetings = new ArrayList<Meeting>();
+						for(int i = 0; i < rooms.size(); i++){
+				%>
 				<tr>
 				<%
-				if(accounts.size() > 0){
-					Account account;					
-					List<Meeting> meetings = new ArrayList<Meeting>();
-					for(int i = 0; i < accounts.size(); i++){
-						account = accounts.get(i);
+						account = rooms.get(i);
 						meetings = account.getMeetings();
-						//meetings = Tool.getListMeeting(account.getUsername(), account.getPassword(), calendar.getTime(), calendar.getTime());
+							//meetings = Tool.getListMeeting(account.getUsername(), account.getPassword(), calendar.getTime(), calendar.getTime());
 				%>
-						<td><div class='celldiv'><%=accounts.get(i).getName()%></div></td>
+					<td><div class='celldiv'><%=rooms.get(i).getName()%></div></td>
 				<%
 						if(meetings.size() <= 0){
 							for(int j = 0; j < times.size(); j++){
@@ -186,13 +189,17 @@
 							}
 						}
 					}
+				%>
+					</tr>
+				<%
 				}else{
 				%>
-					<td colspan="22">Nothing to view</td>
+					<tr>
+						<td colspan="22">Nothing to view</td>
+					</tr>
 				<%	
 				}
 				%>
-				</tr>
 			</tbody>
 		</table>
 		<div class="view-mode"></div>
