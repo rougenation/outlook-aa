@@ -38,8 +38,7 @@
 			para = String.format("day=%s&month=%s&year=%s", 
 					calendar.get(Calendar.DAY_OF_MONTH) , calendar.get(Calendar.MONTH) - 1,calendar.get(Calendar.YEAR));
 			response.sendRedirect("day?" + para);
-		}
-		
+		}		
 		System.out.println("Calendar : " + calendar.getTime());
 	%>
 	<div class="wrapper">
@@ -75,8 +74,7 @@
 				<tr>
 				<%
 				if(accounts.size() > 0){
-					Account account;
-					
+					Account account;					
 					List<Meeting> meetings = new ArrayList<Meeting>();
 					for(int i = 0; i < accounts.size(); i++){
 						account = accounts.get(i);
@@ -96,16 +94,16 @@
 							Meeting meeting = meetings.get(index);
 							for(int j = 0; j < times.size(); j++){
 								start = df.format(meeting.getStartTime());
-								System.out.println("name : " + meeting.getSubject());
-								System.out.println("Start : " + start + "-" + times.get(j).getLabel());
 								if(start.equals(times.get(j).getLabel())){
-									System.out.println("aa");
-									System.out.println("a : " + meeting.getEndTime() + "-" + meeting.getStartTime());
 									beetween = meeting.getEndTime().getTime() - meeting.getStartTime().getTime();
 									minutes = (int)(beetween / 1000 / 60);
 									System.out.println("Minutes : " + minutes);
 									colspan = minutes / 30;
 									colspan += 1;
+									if((times.size() - j) <= colspan){
+										out.print("<td class='time' colspan='" + colspan + "'><div class='celldiv'>" + meeting.getSubject() + "</div></td>");
+										continue;
+									}
 									out.print("<td class='time' colspan='" + colspan + "'><div class='celldiv'>" + meeting.getSubject() + "</div></td>");
 									j += colspan - 1;
 									if(meetings.size() > index){
