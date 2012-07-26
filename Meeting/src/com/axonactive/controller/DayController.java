@@ -27,6 +27,7 @@ public class DayController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
+			
 			if(request.getParameter("day") == null || request.getParameter("month") == null || request.getParameter("year") == null){
 				Calendar calendar = Calendar.getInstance();
 				calendar.set(Calendar.HOUR_OF_DAY, 0);

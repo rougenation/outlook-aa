@@ -18,7 +18,11 @@
 </head>
 <body>
 	<div class="wrapper">
-	<input type="text" class="calpicker" value=""/>
+			<form action="day" method="get">
+				<label>Time : </label>
+				<input type="text" name="calpicker" id="calpicker" class="calpicker" value=""/>
+				<input type="submit" class="btn" value="Filter">
+			</form>
 		<table border="0" class="tbl" cellpadding="0" cellspacing="0"
 			width="100%">
 			<thead>
