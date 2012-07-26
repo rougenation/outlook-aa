@@ -135,6 +135,7 @@ public class Tool {
 //			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			return new ArrayList<Meeting>();
 		}
 		return meetings;
 	}

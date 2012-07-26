@@ -22,6 +22,13 @@
 <script type="text/javascript">
 	$('document').ready(function(){
 		$('.calpicker').simpleDatepicker({startdate : 2008, enddate : 2050});
+		$('#filter').click(function(){
+			var text = $('.calpicker').val();
+			if(text.length == 0){
+				alert("Time is invalid");
+				return false;
+			}
+		});
 	});
 </script>
 </head>
@@ -124,7 +131,8 @@
 					List<Meeting> meetings = new ArrayList<Meeting>();
 					for(int i = 0; i < accounts.size(); i++){
 						account = accounts.get(i);
-						meetings = Tool.getListMeeting(account.getUsername(), account.getPassword(), calendar.getTime(), calendar.getTime());
+						meetings = account.getMeetings();
+						//meetings = Tool.getListMeeting(account.getUsername(), account.getPassword(), calendar.getTime(), calendar.getTime());
 				%>
 						<td><div class='celldiv'><%=accounts.get(i).getName()%></div></td>
 				<%

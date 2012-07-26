@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.axonactive.dto.Account;
+import com.axonactive.dto.Meeting;
 import com.axonactive.dto.Time;
 import com.axonactive.util.Tool;
 
@@ -61,11 +62,20 @@ public class DayController extends HttpServlet {
 	protected void view(HttpServletRequest request, HttpServletResponse response, Calendar calendar){
 		System.out.println("VIEW");
 		try{
+			List<Time> times = new ArrayList<Time>();
+			times = Tool.getListTime(calendar);
+			
 			String file_url = request.getServletContext().getRealPath("/WEB-INF/account.xml");
 			List<Account> accounts = new ArrayList<Account>();
 			accounts = Tool.getListAccount(file_url);
-			List<Time> times = new ArrayList<Time>();
-			times = Tool.getListTime(calendar);
+			
+			Account account;
+			List<Meeting> meetings = new ArrayList<Meeting>();
+			for (int i = 0; i < accounts.size(); i++) {
+				account = accounts.get(i);
+				meetings = Tool.getListMeeting(account.getUsername(), account.getPassword(), calendar.getTime(), calendar.getTime());
+				accounts.get(i).setMeetings(meetings);
+			}
 			
 			request.setAttribute("times", times); //set attribute times
 			request.setAttribute("accounts", accounts); //set attribute accounts
@@ -80,8 +90,8 @@ public class DayController extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("POST");
+		Calendar calendar;
 		try{
-			Calendar calendar;
 			if(request.getParameter("time") != null){
 				DateFormat format = new SimpleDateFormat("MM/dd/yyyy");
 				String time = request.getParameter("time").toString();
@@ -91,6 +101,8 @@ public class DayController extends HttpServlet {
 				view(request,response,calendar);
 			}
 		}catch (Exception e) {
+			calendar = getNewCalendar();
+			view(request,response,calendar);
 			e.printStackTrace();
 		}
 	}
