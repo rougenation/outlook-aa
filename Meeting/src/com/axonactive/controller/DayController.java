@@ -33,10 +33,8 @@ public class DayController extends HttpServlet {
 				calendar.set(Calendar.MINUTE, 0);
 				calendar.set(Calendar.SECOND, 0);
 				view(request,response,calendar);
-				System.out.println("if");
 				return;
 			}else{
-				System.out.println("else");
 				int day = Integer.parseInt(request.getParameter("day").toString());
 				int month = Integer.parseInt(request.getParameter("month").toString());
 				int year = Integer.parseInt(request.getParameter("year").toString());
@@ -54,7 +52,6 @@ public class DayController extends HttpServlet {
 		try{
 			String file_url = request.getServletContext().getRealPath("/WEB-INF/account.xml");
 			List<Account> accounts = new ArrayList<Account>();
-			System.out.println(file_url);
 			accounts = Tool.getListAccount(file_url);
 			List<Time> times = new ArrayList<Time>();
 			times = Tool.getListTime(calendar);

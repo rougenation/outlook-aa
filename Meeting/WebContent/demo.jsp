@@ -7,9 +7,18 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="resources/css/reset.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/calendar.css" />
+<script type="text/javascript" src="resources/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="resources/js/calendar.js"></script>
+<script type="text/javascript">
+	$('document').ready(function(){
+		$('.calpicker').simpleDatepicker({startdate : 2008, enddate : 2050});
+	});
+</script>
 </head>
 <body>
 	<div class="wrapper">
+	<input type="text" class="calpicker" value=""/>
 		<table border="0" class="tbl" cellpadding="0" cellspacing="0"
 			width="100%">
 			<thead>

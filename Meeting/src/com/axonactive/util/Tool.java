@@ -101,7 +101,6 @@ public class Tool {
 			File xmlFile = new File(file_url);
 			Element node;
 			if (xmlFile.exists()) {
-				System.out.println("exist");
 				Document document = builder.build(xmlFile);
 				Element root = document.getRootElement();
 				List list = root.getChildren("account");

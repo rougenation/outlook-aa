@@ -9,6 +9,19 @@ html,body{
 	padding: 5px;
 }
 
+#display-time{
+	font-size: 1.2em;
+	margin: 10px 0px;
+	display: block;
+}
+
+a.link{
+	text-decoration: none;
+	color: #0492D0;
+	display: block;
+	padding: 5px 0px;
+}
+
 .tbl{
 	border-left: 1px solid #EAEAEA;
 	border-bottom: 1px solid #EAEAEA;

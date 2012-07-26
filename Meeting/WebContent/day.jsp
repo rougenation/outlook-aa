@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Axon Active - Meeting room</title>
 <link rel="stylesheet" type="text/css" href="resources/css/reset.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
 </head>
@@ -21,6 +21,7 @@
 	<%
 		//use for meeting
 		DateFormat df = new SimpleDateFormat("HH:mm");
+		DateFormat display = DateFormat.getDateInstance(DateFormat.FULL);
 		int index = 0;
 		List<Account> accounts = new ArrayList<Account>();
 		List<Time> times = new ArrayList<Time>();
@@ -35,14 +36,46 @@
 			}
 		}else{
 			String para = "";
+			System.out.println(calendar.get(Calendar.MONTH));
 			para = String.format("day=%s&month=%s&year=%s", 
-					calendar.get(Calendar.DAY_OF_MONTH) , calendar.get(Calendar.MONTH) - 1,calendar.get(Calendar.YEAR));
+					calendar.get(Calendar.DAY_OF_MONTH) , calendar.get(Calendar.MONTH) + 1,calendar.get(Calendar.YEAR));
 			response.sendRedirect("day?" + para);
-		}		
-		System.out.println("Calendar : " + calendar.getTime());
+		}				
 	%>
 	<div class="wrapper">
-		<table border="0" class="tbl" cellpadding="0" cellspacing="0"
+		<span id="display-time">
+			<%=display.format(calendar.getTime())%>
+		</span>
+		<table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<%
+					String para = "";
+				%>
+				<td width="30%" align="left">
+					<%						
+						para = String.format("day=%s&month=%s&year=%s", 
+								calendar.get(Calendar.DAY_OF_MONTH) - 1, calendar.get(Calendar.MONTH) + 1,calendar.get(Calendar.YEAR));
+					%>
+					<a class="link" href="day?<%=para%>">&laquo; Go to day before</a>
+				</td>
+				<td width="40%" align="center">
+					<%
+						Calendar today = Calendar.getInstance();
+						para = String.format("day=%s&month=%s&year=%s", 
+								today.get(Calendar.DAY_OF_MONTH) , today.get(Calendar.MONTH) + 1,today.get(Calendar.YEAR));
+					%>
+					<a class="link" href="day?<%=para%>">Go to today</a>
+				</td>
+				<td width="30%" align="right">
+					<%						
+						para = String.format("day=%s&month=%s&year=%s", 
+								calendar.get(Calendar.DAY_OF_MONTH) + 1, calendar.get(Calendar.MONTH) + 1,calendar.get(Calendar.YEAR));
+					%>
+					<a class="link" href="day?<%=para%>">Go to day after &raquo;</a>
+				</td>
+			</tr>
+		</table>
+		<table border="0" class="tbl" cellpadding="3" cellspacing="3"
 			width="100%">
 			<thead>
 				<tr>
