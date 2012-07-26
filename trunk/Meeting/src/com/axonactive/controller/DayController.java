@@ -86,8 +86,6 @@ public class DayController extends HttpServlet {
 				calendar = Calendar.getInstance();
 				calendar.setTime(date);
 				view(request,response,calendar);
-				System.out.println("Time : " + request.getParameter("time").toString());
-				return;
 			}
 		}catch (Exception e) {
 			e.printStackTrace();
