@@ -1,8 +1,11 @@
 package com.axonactive.controller;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -27,19 +30,16 @@ public class DayController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			
+			Calendar calendar;
 			if(request.getParameter("day") == null || request.getParameter("month") == null || request.getParameter("year") == null){
-				Calendar calendar = Calendar.getInstance();
-				calendar.set(Calendar.HOUR_OF_DAY, 0);
-				calendar.set(Calendar.MINUTE, 0);
-				calendar.set(Calendar.SECOND, 0);
+				calendar = getNewCalendar();
 				view(request,response,calendar);
 				return;
 			}else{
 				int day = Integer.parseInt(request.getParameter("day").toString());
 				int month = Integer.parseInt(request.getParameter("month").toString());
 				int year = Integer.parseInt(request.getParameter("year").toString());
-				Calendar calendar = Calendar.getInstance();
+				calendar = Calendar.getInstance();
 				calendar.set(year, month - 1, day,0,0,0);
 				view(request,response,calendar);
 				return;
@@ -47,6 +47,14 @@ public class DayController extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	protected Calendar getNewCalendar(){
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(Calendar.HOUR_OF_DAY, 0);
+		calendar.set(Calendar.MINUTE, 0);
+		calendar.set(Calendar.SECOND, 0);
+		return calendar;
 	}
 	
 	protected void view(HttpServletRequest request, HttpServletResponse response, Calendar calendar){
@@ -69,5 +77,20 @@ public class DayController extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try{
+			Calendar calendar;
+			if(request.getParameter("time") != null){
+				DateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+				String time = request.getParameter("time").toString();
+				Date date = format.parse(time);
+				calendar = Calendar.getInstance();
+				calendar.setTime(date);
+				view(request,response,calendar);
+				System.out.println("Time : " + request.getParameter("time").toString());
+				return;
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

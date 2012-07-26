@@ -55,9 +55,11 @@
 			<%=display.format(calendar.getTime())%>
 		</span>
 		<div class="search-time">
-			<label>Time : </label>
-			<input type="text" name="calpicker" id="calpicker" class="calpicker" value=""/>
-			<input type="submit" class="btn" name="filter" id="filter" value="Filter">
+			<form action="day" method="post">
+				<label>Time : </label>
+				<input type="text" name="time" id="time" class="calpicker" value=""/>
+				<input type="submit" class="btn" id="filter" value="Filter">
+			</form>
 		</div>
 		<table border="0" cellpadding="0" cellspacing="0" width="100%">
 			<tr>
