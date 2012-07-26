@@ -1,11 +1,14 @@
 package com.axonactive.dto;
 
+import java.util.List;
+
 public class Account {
 
 	private String id;
 	private String name;
 	private String username;
 	private String password;
+	private List<Meeting> meetings;
 
 	public Account(){
 		id = name = username = password = "";
@@ -48,6 +51,14 @@ public class Account {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public List<Meeting> getMeetings() {
+		return meetings;
+	}
+
+	public void setMeetings(List<Meeting> meetings) {
+		this.meetings = meetings;
 	}
 	
 	
