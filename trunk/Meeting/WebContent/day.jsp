@@ -16,6 +16,14 @@
 <title>Axon Active - Meeting room</title>
 <link rel="stylesheet" type="text/css" href="resources/css/reset.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/calendar.css" />
+<script type="text/javascript" src="resources/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="resources/js/calendar.js"></script>
+<script type="text/javascript">
+	$('document').ready(function(){
+		$('.calpicker').simpleDatepicker({startdate : 2008, enddate : 2050});
+	});
+</script>
 </head>
 <body>
 	<%
@@ -46,6 +54,11 @@
 		<span id="display-time">
 			<%=display.format(calendar.getTime())%>
 		</span>
+		<div class="search-time">
+			<label>Time : </label>
+			<input type="text" name="calpicker" id="calpicker" class="calpicker" value=""/>
+			<input type="submit" class="btn" name="filter" id="filter" value="Filter">
+		</div>
 		<table border="0" cellpadding="0" cellspacing="0" width="100%">
 			<tr>
 				<%

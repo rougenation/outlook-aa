@@ -22,6 +22,20 @@ a.link{
 	padding: 5px 0px;
 }
 
+.search-time{
+	margin: 8px 0;
+}
+
+.btn{
+	border: 1px solid #b1b1b1;
+	padding: 2px 10px;
+	cursor: pointer;
+}
+
+.btn:hover{
+	background: #c1c1c1;
+}
+
 .tbl{
 	border-left: 1px solid #EAEAEA;
 	border-bottom: 1px solid #EAEAEA;
