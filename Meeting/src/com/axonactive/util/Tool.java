@@ -54,40 +54,85 @@ public class Tool {
 	public static List<Meeting> getListMeeting(String username,
 			String password, Date start, Date end) {
 		List<Meeting> meetings = new ArrayList<Meeting>();
+		System.out.println("List Meeintg");
 		try {
-			ExchangeService service = new ExchangeService();
-			ExchangeCredentials wc = new WebCredentials(username, password);
-			service.setCredentials(wc);
-			service.setUrl(new URI("https://axonvn-msvr2.teledata.local/EWS/Exchange.asmx"));
+			Meeting meeting = new Meeting("1", "KFC", "Axon", "");
+			Calendar time = Calendar.getInstance();
+			time.set(Calendar.HOUR_OF_DAY, 8);
+			time.set(Calendar.MINUTE, 0);
+			meeting.setStartTime(time.getTime());
+			time = Calendar.getInstance();
+			time.set(Calendar.HOUR_OF_DAY, 10);
+			time.set(Calendar.MINUTE, 0);
+			meeting.setEndTime(time.getTime());
+			meetings.add(meeting);
 			
-			start.setHours(1);
-			start.setMinutes(0);
-			end.setHours(11);
-			end.setMinutes(0);
-			System.out.println("Start : " + start);
-			System.out.println("End : " + end);
+			meeting = new Meeting("2", "Meeting", "Axon", "");
+			time = Calendar.getInstance();
+			time.set(Calendar.HOUR_OF_DAY, 10);
+			time.set(Calendar.MINUTE, 0);
+			meeting.setStartTime(time.getTime());
+			time = Calendar.getInstance();
+			time.set(Calendar.HOUR_OF_DAY, 10);
+			time.set(Calendar.MINUTE, 30);
+			meeting.setEndTime(time.getTime());
+			meetings.add(meeting);
 			
-			CalendarView calendar = new CalendarView(start, end);
-			FindItemsResults<Appointment> findCalendar = service.findAppointments(
-					new FolderId(WellKnownFolderName.Calendar, new Mailbox("mr1@axonactive.vn")), calendar);
-			SimpleDateFormat simp = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-			Calendar temp = Calendar.getInstance();
-			Meeting meeting;
-			for (Appointment app : findCalendar.getItems()) {
-				meeting = new Meeting(app.getId().getUniqueId(), app.getSubject(), app.getLocation(),"");
-				temp.setTime(app.getStart());
-				temp.add(Calendar.HOUR_OF_DAY, 7);
-				meeting.setStartTime(temp.getTime());
-				
-				temp.setTime(app.getEnd());
-				temp.add(Calendar.HOUR_OF_DAY, 7);
-				meeting.setEndTime(temp.getTime());
-				
-				meetings.add(meeting);
-				
-				System.out.println("A : " +app.getTimeZone() + " - " + simp.format(app.getStart()) + "-" + simp.format(app.getEnd()));
-				System.out.println("B : " +app.getTimeZone() + " - " + app.getStart() + "-" + app.getEnd());
-			}
+			meeting = new Meeting("3", "Appointment", "Axon", "");
+			time = Calendar.getInstance();
+			time.set(Calendar.HOUR_OF_DAY, 10);
+			time.set(Calendar.MINUTE, 30);
+			meeting.setStartTime(time.getTime());
+			time = Calendar.getInstance();
+			time.set(Calendar.HOUR_OF_DAY, 11);
+			time.set(Calendar.MINUTE, 0);
+			meeting.setEndTime(time.getTime());
+			meetings.add(meeting);
+			
+			meeting = new Meeting("4", "Planning", "Axon", "");
+			time = Calendar.getInstance();
+			time.set(Calendar.HOUR_OF_DAY, 13);
+			time.set(Calendar.MINUTE, 30);
+			meeting.setStartTime(time.getTime());
+			time = Calendar.getInstance();
+			time.set(Calendar.HOUR_OF_DAY, 15);
+			time.set(Calendar.MINUTE, 0);
+			meeting.setEndTime(time.getTime());
+			meetings.add(meeting);
+			
+//			ExchangeService service = new ExchangeService();
+//			ExchangeCredentials wc = new WebCredentials(username, password);
+//			service.setCredentials(wc);
+//			service.setUrl(new URI("https://axonvn-msvr2.teledata.local/EWS/Exchange.asmx"));
+//			
+//			start.setHours(1);
+//			start.setMinutes(0);
+//			end.setHours(11);
+//			end.setMinutes(0);
+//			System.out.println("Start : " + start);
+//			System.out.println("End : " + end);
+//			
+//			CalendarView calendar = new CalendarView(start, end);
+//			FindItemsResults<Appointment> findCalendar = service.findAppointments(
+//					new FolderId(WellKnownFolderName.Calendar, new Mailbox("mr1@axonactive.vn")), calendar);
+//			SimpleDateFormat simp = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+//			Calendar temp = Calendar.getInstance();
+//			Meeting meeting;
+//			for (Appointment app : findCalendar.getItems()) {
+//				meeting = new Meeting(app.getId().getUniqueId(), app.getSubject(), app.getLocation(),"");
+//				temp.setTime(app.getStart());
+//				temp.add(Calendar.HOUR_OF_DAY, 7);
+//				meeting.setStartTime(temp.getTime());
+//				
+//				temp.setTime(app.getEnd());
+//				temp.add(Calendar.HOUR_OF_DAY, 7);
+//				meeting.setEndTime(temp.getTime());
+//				
+//				meetings.add(meeting);
+//				
+//				System.out.println("A : " +app.getTimeZone() + " - " + simp.format(app.getStart()) + "-" + simp.format(app.getEnd()));
+//				System.out.println("B : " +app.getTimeZone() + " - " + app.getStart() + "-" + app.getEnd());
+//			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

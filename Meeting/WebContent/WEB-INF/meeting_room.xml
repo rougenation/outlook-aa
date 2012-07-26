@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rooms>
+	<room>
+		<id>mr1</id>
+		<name>Meeting room 1</name>
+		<mailbox>mr1@axonactive.vn</mailbox>
+	</room>
+	<room>
+		<id>mr2</id>
+		<name>Meeting room 2</name>
+		<mailbox>mr2@axonactive.vn</mailbox>
+	</room>
+	<room>
+		<id>mr3</id>
+		<name>Meeting room 3</name>
+		<mailbox>mr3@axonactive.vn</mailbox>
+	</room>
+	<room>
+		<id>4</id>
+		<name>Meeting room 4</name>
+		<mailbox>mr4@axonactive.vn</mailbox>
+	</room>
+	<room>
+		<id>5</id>
+		<name>Meeting room 5</name>
+		<mailbox>mr5@axonactive.vn</mailbox>
+	</room>
+	<room>
+		<id>6</id>
+		<name>Meeting room 6</name>
+		<mailbox>mr6@axonactive.vn</mailbox>
+	</room>
+</rooms>

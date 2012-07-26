@@ -30,7 +30,6 @@
 		//use for meeting
 		DateFormat df = new SimpleDateFormat("HH:mm");
 		DateFormat display = DateFormat.getDateInstance(DateFormat.FULL);
-		int index = 0;
 		List<Account> accounts = new ArrayList<Account>();
 		List<Time> times = new ArrayList<Time>();
 		Calendar calendar = Calendar.getInstance();
@@ -44,7 +43,6 @@
 			}
 		}else{
 			String para = "";
-			System.out.println(calendar.get(Calendar.MONTH));
 			para = String.format("day=%s&month=%s&year=%s", 
 					calendar.get(Calendar.DAY_OF_MONTH) , calendar.get(Calendar.MONTH) + 1,calendar.get(Calendar.YEAR));
 			response.sendRedirect("day?" + para);
@@ -95,27 +93,27 @@
 			<thead>
 				<tr>
 					<th class="th">Room</th>
-					<th class="th">08:00</th>
-					<th class="th">08:30</th>
-					<th class="th">09:00</th>
-					<th class="th">09:30</th>
-					<th class="th">10:00</th>
-					<th class="th">10:30</th>
-					<th class="th">11:00</th>
-					<th class="th">11:30</th>
-					<th class="th">12:00</th>
-					<th class="th">12:30</th>
-					<th class="th">13:00</th>
-					<th class="th">13:30</th>
-					<th class="th">14:00</th>
-					<th class="th">14:30</th>
-					<th class="th">15:00</th>
-					<th class="th">15:30</th>
-					<th class="th">16:00</th>
-					<th class="th">16:30</th>
-					<th class="th">17:00</th>
-					<th class="th">17:30</th>
-					<th class="th">18:00</th>
+					<th width="4%" class="th">08:00</th>
+					<th width="4%" class="th">08:30</th>
+					<th width="4%" class="th">09:00</th>
+					<th width="4%" class="th">09:30</th>
+					<th width="4%" class="th">10:00</th>
+					<th width="4%" class="th">10:30</th>
+					<th width="4%" class="th">11:00</th>
+					<th width="4%" class="th">11:30</th>
+					<th width="4%" class="th">12:00</th>
+					<th width="4%" class="th">12:30</th>
+					<th width="4%" class="th">13:00</th>
+					<th width="4%" class="th">13:30</th>
+					<th width="4%" class="th">14:00</th>
+					<th width="4%" class="th">14:30</th>
+					<th width="4%" class="th">15:00</th>
+					<th width="4%" class="th">15:30</th>
+					<th width="4%" class="th">16:00</th>
+					<th width="4%" class="th">16:30</th>
+					<th width="4%" class="th">17:00</th>
+					<th width="4%" class="th">17:30</th>
+					<th width="4%" class="th">18:00</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -135,30 +133,47 @@
 								out.print("<td><div class='celldiv'>...</div></td>");
 							}
 						}else{
+							int index = 0;
 							long beetween = 0;
 							int minutes = 0;
 							int colspan = 0;
 							String start = "";
-							Meeting meeting = meetings.get(index);
+							Meeting meeting;
 							for(int j = 0; j < times.size(); j++){
+								meeting = meetings.get(index);
 								start = df.format(meeting.getStartTime());
 								if(start.equals(times.get(j).getLabel())){
+									System.out.println(meeting.getSubject() + "-" + df.format(meeting.getStartTime()));
 									beetween = meeting.getEndTime().getTime() - meeting.getStartTime().getTime();
 									minutes = (int)(beetween / 1000 / 60);
 									System.out.println("Minutes : " + minutes);
 									colspan = minutes / 30;
-									colspan += 1;
 									if((times.size() - j) <= colspan){
-										out.print("<td class='time' colspan='" + colspan + "'><div class='celldiv'>" + meeting.getSubject() + "</div></td>");
-										continue;
+										System.out.println("Continue : " + (times.size() - j));
+				%>
+										<td class='time' colspan="<%=(times.size() - j)%>">
+											<div title="<%=meeting.getSubject()%> (<%= df.format(meeting.getStartTime())%> - <%=df.format(meeting.getEndTime()) %>)" class='celldiv'>
+												<%=meeting.getSubject()%> (<%= df.format(meeting.getStartTime())%> - <%=df.format(meeting.getEndTime()) %>)
+											</div>
+										</td>
+				<%
+										break;
 									}
-									out.print("<td class='time' colspan='" + colspan + "'><div class='celldiv'>" + meeting.getSubject() + "</div></td>");
+				%>
+									<td class='time' colspan="<%=colspan%>">
+										<div class='celldiv' title="<%=meeting.getSubject()%> (<%= df.format(meeting.getStartTime())%> - <%=df.format(meeting.getEndTime()) %>)">
+											<%=meeting.getSubject()%> (<%= df.format(meeting.getStartTime())%> - <%=df.format(meeting.getEndTime()) %>)
+										</div>
+									</td>
+				<%
 									j += colspan - 1;
-									if(meetings.size() > index){
+									if((meetings.size() - 1) > index){
 										index++;
 									}
 								}else{
-									out.print("<td><div class='celldiv'>...</div></td>");
+				%>
+									<td><div class='celldiv'>...</div></td>
+				<%
 								}
 							}
 						}
