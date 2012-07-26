@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<accounts>
-	<account>
-		<id>1</id>
-		<name>Meeting room 1</name>
-		<username>huytranquoc</username>
-		<password>PN+JHBF5aZ</password>
-	</account>	
-</accounts>
+<urls>
+	<id>1</id>
+	<url>https://axonvn-msvr2.teledata.local/EWS/Exchange.asmx</url>
+</urls>

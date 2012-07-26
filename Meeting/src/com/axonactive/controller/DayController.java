@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.axonactive.dto.Account;
+import com.axonactive.dto.Room;
 import com.axonactive.dto.Meeting;
 import com.axonactive.dto.Time;
 import com.axonactive.util.Tool;
@@ -62,23 +63,34 @@ public class DayController extends HttpServlet {
 	protected void view(HttpServletRequest request, HttpServletResponse response, Calendar calendar){
 		System.out.println("VIEW");
 		try{
+			//list time
 			List<Time> times = new ArrayList<Time>();
 			times = Tool.getListTime(calendar);
 			
+			//get account
 			String file_url = request.getServletContext().getRealPath("/WEB-INF/account.xml");
-			List<Account> accounts = new ArrayList<Account>();
-			accounts = Tool.getListAccount(file_url);
+			Account account = Tool.getAccount(file_url);
 			
-			Account account;
+			//get url
+			//file_url = request.getServletContext().getRealPath("/WEB-INF/url.xml");
+			String url = "https://axonvn-msvr2.teledata.local/EWS/Exchange.asmx";
+			//System.out.println("Account : " + url);
+			
+			//list room
+			file_url = request.getServletContext().getRealPath("/WEB-INF/meeting_room.xml");
+			List<Room> rooms = new ArrayList<Room>();
+			rooms = Tool.getListRoom(file_url);
+			
+			//list meeting
 			List<Meeting> meetings = new ArrayList<Meeting>();
-			for (int i = 0; i < accounts.size(); i++) {
-				account = accounts.get(i);
-				meetings = Tool.getListMeeting(account.getUsername(), account.getPassword(), calendar.getTime(), calendar.getTime());
-				accounts.get(i).setMeetings(meetings);
+			for (int i = 0; i < rooms.size(); i++) {
+				meetings = Tool.getListMeeting(url,account.getUsername(), account.getPassword(), rooms.get(i).getMailbox(),
+						calendar.getTime(), calendar.getTime());
+				rooms.get(i).setMeetings(meetings);
 			}
 			
 			request.setAttribute("times", times); //set attribute times
-			request.setAttribute("accounts", accounts); //set attribute accounts
+			request.setAttribute("rooms", rooms); //set attribute accounts
 			request.setAttribute("calendar", calendar); // set attribute calendar
 			ServletContext context = getServletContext();
 			RequestDispatcher dispatcher = context.getRequestDispatcher("/day.jsp");
