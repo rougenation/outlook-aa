@@ -134,7 +134,6 @@ public class Tool {
 			end.setMinutes(0);
 			System.out.println("Start : " + start);
 			System.out.println("End : " + end);
-			
 			CalendarView calendar = new CalendarView(start, end);
 			FindItemsResults<Appointment> findCalendar = service.findAppointments(
 					new FolderId(WellKnownFolderName.Calendar, new Mailbox(mailbox)), calendar);
