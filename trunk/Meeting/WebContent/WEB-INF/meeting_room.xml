@@ -25,4 +25,14 @@
 		<name>Meeting room 5</name>
 		<mailbox>mr5@axonactive.vn</mailbox>
 	</room>
+	<room>
+		<id>6</id>
+		<name>Meeting room 6</name>
+		<mailbox>mr6@axonactive.vn</mailbox>
+	</room>
+	<room>
+		<id>7</id>
+		<name>Meeting room 7</name>
+		<mailbox>mr7@axonactive.vn</mailbox>
+	</room>
 </rooms>
