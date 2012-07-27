@@ -124,7 +124,6 @@
 				</tr>
 			</thead>
 			<tbody>
-				
 				<%
 					if(rooms.size() > 0){
 						Room account;					
@@ -152,32 +151,25 @@
 							Meeting meeting;
 							for(int j = 0; j < times.size(); j++){
 								meeting = meetings.get(index);
-								start = df.format(meeting.getStartTime());
-								if(start.equals(times.get(j).getLabel())){
-									System.out.println(meeting.getSubject() + "-" + df.format(meeting.getStartTime()));
-									beetween = meeting.getEndTime().getTime() - meeting.getStartTime().getTime();
-									minutes = (int)(beetween / 1000 / 60);
-									System.out.println("Minutes : " + minutes);
-									colspan = minutes / 30;
-									if((times.size() - j) <= colspan){
-										System.out.println("Continue : " + (times.size() - j));
+								if(meeting.getDisplayStart().equals(times.get(j).getLabel())){
+									if((times.size() - j) <= meeting.getColspan()){
 				%>
 										<td class='time' colspan="<%=(times.size() - j)%>">
-											<div title="<%=meeting.getSubject()%> (<%= df.format(meeting.getStartTime())%> - <%=df.format(meeting.getEndTime()) %>)" class='celldiv'>
-												<%=meeting.getSubject()%> (<%= df.format(meeting.getStartTime())%> - <%=df.format(meeting.getEndTime()) %>)
+											<div title="<%=meeting.getSubject()%> (<%= meeting.getDisplayStart()%> - <%=meeting.getDisplayEnd() %>)" class='celldiv'>
+												<%=meeting.getSubject()%> (<%= meeting.getDisplayStart()%> - <%=df.format(meeting.getDisplayEnd()) %>)
 											</div>
 										</td>
 				<%
 										break;
 									}
 				%>
-									<td class='time' colspan="<%=colspan%>">
-										<div class='celldiv' title="<%=meeting.getSubject()%> (<%= df.format(meeting.getStartTime())%> - <%=df.format(meeting.getEndTime()) %>)">
-											<%=meeting.getSubject()%> (<%= df.format(meeting.getStartTime())%> - <%=df.format(meeting.getEndTime()) %>)
+									<td class='time' colspan="<%=meeting.getColspan()%>">
+										<div class='celldiv' title="<%=meeting.getSubject()%> (<%= meeting.getDisplayStart()%> - <%=meeting.getDisplayEnd() %>)">
+											<%=meeting.getSubject()%> (<%= meeting.getDisplayStart()%> - <%= meeting.getDisplayEnd() %>)
 										</div>
 									</td>
 				<%
-									j += colspan - 1;
+									j += meeting.getColspan() - 1;
 									if((meetings.size() - 1) > index){
 										index++;
 									}

@@ -1,6 +1,8 @@
 package com.axonactive.dto;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Meeting implements Serializable{
@@ -24,6 +26,23 @@ public class Meeting implements Serializable{
 		this.subject = subject;
 		this.location = location;
 		this.content = content;
+	}
+	
+	public int getColspan(){
+		long beetween = endTime.getTime() - startTime.getTime();
+		int minutes = (int)(beetween / 1000 / 60);
+		int colspan = minutes / 30;
+		return colspan;
+	}
+	
+	public String getDisplayStart(){
+		DateFormat df = new SimpleDateFormat("HH:mm");
+		return df.format(startTime);
+	}
+	
+	public String getDisplayEnd(){
+		DateFormat df = new SimpleDateFormat("HH:mm");
+		return df.format(endTime);
 	}
 	
 	public String getId() {
