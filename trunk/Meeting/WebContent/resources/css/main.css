@@ -18,8 +18,6 @@ html,body{
 a.link{
 	text-decoration: none;
 	color: #0492D0;
-	display: block;
-	padding: 5px 0px;
 }
 
 .search-time{
