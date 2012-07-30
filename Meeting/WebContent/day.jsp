@@ -16,29 +16,31 @@
 <title>Axon Active - Meeting room</title>
 <link rel="stylesheet" type="text/css" href="resources/css/reset.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
-<link rel="stylesheet" type="text/css" href="resources/css/calendar.css" />
 <script type="text/javascript" src="resources/js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="resources/js/calendar.js"></script>
 
 <link rel="stylesheet" media="screen" type="text/css" href="resources/css/datepicker.css" />
 <script type="text/javascript" src="resources/js/datepicker.js"></script>
 
 <script type="text/javascript">
 	$('document').ready(function(){
-		$('.calpicker').simpleDatepicker({startdate : 2008, enddate : 2050});
-		$('#filter').click(function(){
-			var text = $('.calpicker').val();
-			if(text.length == 0){
-				alert("Time is invalid");
-				return false;
-			}
-		});
-		$('#date').DatePicker({
-			flat: true,
-			date: [new Date(),new Date()],
-			current: '2008-07-31',
-			calendars: 3,
+		$('#inputDate').DatePicker({
+			format:'m/d/Y',
+			date: $('#inputDate').val(),
+			current: $('#inputDate').val(),
 			starts: 1
+		});
+
+		$('#month-selection').DatePicker({
+			format:'m/d/Y',
+			flat: true,
+			date: ['07/30/2012','07/30/2012'],
+			current: '07/30/2012',
+			calendars: 3,
+			starts: 1,
+			onChange: function(formated, dates){
+				$('#inputDate').val(formated);
+				$('#target').submit();
+			}
 		});
 	});
 </script>
@@ -46,6 +48,7 @@
 <body>
 	<%
 		//use for meeting
+		DateFormat dfDate = new SimpleDateFormat("MM/dd/yyyy");
 		DateFormat df = new SimpleDateFormat("HH:mm");
 		DateFormat display = DateFormat.getDateInstance(DateFormat.FULL);
 		List<Room> rooms = new ArrayList<Room>();
@@ -67,13 +70,14 @@
 		}
 	%>
 	<div class="wrapper">
+		<div id="month-selection"></div>
 		<span id="display-time">
 			<%=display.format(calendar.getTime())%>
 		</span>
 		<div class="search-time">
-			<form action="day" method="post">
+			<form id="target" action="day" method="post">
 				<label>Time : </label>
-				<input type="text" name="time" id="time" class="calpicker" value="" readonly="readonly"/>
+				<input type="text" name="time" id="inputDate" class="inputDate" value="<%=dfDate.format(calendar.getTime())%>"/>
 				<input type="submit" class="btn" id="filter" value="Filter">
 			</form>
 		</div>
