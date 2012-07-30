@@ -16,18 +16,18 @@
 		<mailbox>mr3@axonactive.vn</mailbox>
 	</room>
 	<room>
-		<id>4</id>
+		<id>mr4</id>
 		<name>Meeting room 4</name>
 		<mailbox>mr4@axonactive.vn</mailbox>
 	</room>
 	<room>
-		<id>5</id>
+		<id>mr5</id>
 		<name>Meeting room 5</name>
 		<mailbox>mr5@axonactive.vn</mailbox>
 	</room>
 	<room>
-		<id>6</id>
+		<id>mr6</id>
 		<name>Meeting room 6</name>
 		<mailbox>mr6@axonactive.vn</mailbox>
-	</room>
+	</room>	
 </rooms>

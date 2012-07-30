@@ -7,8 +7,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.axonactive.dto.Room"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,6 +16,7 @@
 <title>Axon Active - Meeting room</title>
 <link rel="stylesheet" type="text/css" href="resources/css/reset.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/calendar.css" />
 <script type="text/javascript" src="resources/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="resources/js/calendar.js"></script>
 
@@ -66,9 +67,6 @@
 		}
 	%>
 	<div class="wrapper">
-		<div class="date-range">
-			<span id="date"></span>
-		</div>
 		<span id="display-time">
 			<%=display.format(calendar.getTime())%>
 		</span>
@@ -153,7 +151,7 @@
 				<%
 						if(meetings.size() <= 0){
 							for(int j = 0; j < times.size(); j++){
-								out.print("<td><div class='celldiv'>...</div></td>");
+								out.print("<td><div class='celldiv'>..</div></td>");
 							}
 						}else{
 							int index = 0;
@@ -188,7 +186,7 @@
 									}
 								}else{
 				%>
-									<td><div class='celldiv'>...</div></td>
+									<td><div class='celldiv'>..</div></td>
 				<%
 								}
 							}
