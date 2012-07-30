@@ -16,33 +16,24 @@
 <title>Axon Active - Meeting room</title>
 <link rel="stylesheet" type="text/css" href="resources/css/reset.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/jquery-ui-1.7.3.custom.css" />
 <script type="text/javascript" src="resources/js/jquery-1.7.2.min.js"></script>
-
-<link rel="stylesheet" media="screen" type="text/css" href="resources/css/datepicker.css" />
-<script type="text/javascript" src="resources/js/datepicker.js"></script>
+<script type="text/javascript" src="resources/js/jquery-ui-1.7.3.custom.min.js"></script>
 
 <script type="text/javascript">
 	$('document').ready(function(){
-		$('#inputDate').DatePicker({
-			format:'m/d/Y',
-			date: $('#inputDate').val(),
-			current: $('#inputDate').val(),
-			starts: 1,
-			onChange: function(formated, dates){
-				$('#inputDate').val(formated);
+		$("#month-selection" ).datepicker({
+			numberOfMonths: 3,
+			onSelect: function(dateText, inst) {
+				$("#inputDate").val(dateText);
+				$('#target').submit();
 			}
 		});
-
-		$('#month-selection').DatePicker({
-			format:'m/d/Y',
-			flat: true,
-			date: ['07/30/2012','07/30/2012'],
-			current: '07/30/2012',
-			calendars: 3,
-			starts: 1,
-			onChange: function(formated, dates){
-				$('#inputDate').val(formated);
-				$('#target').submit();
+		$("#inputDate" ).datepicker({
+			changeMonth: true,
+			changeYear: true,
+			onSelect: function(dateText, inst) {
+				$("#inputDate").val(dateText);
 			}
 		});
 	});
@@ -80,7 +71,7 @@
 		<div class="search-time">
 			<form id="target" action="day" method="post">
 				<label>Time : </label>
-				<input type="text" name="time" id="inputDate" class="inputDate" readonly="readonly" 
+				<input type="text" name="time" id="inputDate" readonly="readonly" 
 					value="<%=dfDate.format(calendar.getTime())%>"/>
 				<input type="submit" class="btn" id="filter" value="Filter">
 			</form>
