@@ -27,7 +27,10 @@
 			format:'m/d/Y',
 			date: $('#inputDate').val(),
 			current: $('#inputDate').val(),
-			starts: 1
+			starts: 1,
+			onChange: function(formated, dates){
+				$('#inputDate').val(formated);
+			}
 		});
 
 		$('#month-selection').DatePicker({
@@ -77,7 +80,8 @@
 		<div class="search-time">
 			<form id="target" action="day" method="post">
 				<label>Time : </label>
-				<input type="text" name="time" id="inputDate" class="inputDate" value="<%=dfDate.format(calendar.getTime())%>"/>
+				<input type="text" name="time" id="inputDate" class="inputDate" readonly="readonly" 
+					value="<%=dfDate.format(calendar.getTime())%>"/>
 				<input type="submit" class="btn" id="filter" value="Filter">
 			</form>
 		</div>
