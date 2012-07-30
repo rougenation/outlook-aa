@@ -16,9 +16,12 @@
 <title>Axon Active - Meeting room</title>
 <link rel="stylesheet" type="text/css" href="resources/css/reset.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
-<link rel="stylesheet" type="text/css" href="resources/css/calendar.css" />
 <script type="text/javascript" src="resources/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="resources/js/calendar.js"></script>
+
+<link rel="stylesheet" media="screen" type="text/css" href="resources/css/datepicker.css" />
+<script type="text/javascript" src="resources/js/datepicker.js"></script>
+
 <script type="text/javascript">
 	$('document').ready(function(){
 		$('.calpicker').simpleDatepicker({startdate : 2008, enddate : 2050});
@@ -28,6 +31,13 @@
 				alert("Time is invalid");
 				return false;
 			}
+		});
+		$('#date').DatePicker({
+			flat: true,
+			date: [new Date(),new Date()],
+			current: '2008-07-31',
+			calendars: 3,
+			starts: 1
 		});
 	});
 </script>
@@ -56,13 +66,16 @@
 		}
 	%>
 	<div class="wrapper">
+		<div class="date-range">
+			<span id="date"></span>
+		</div>
 		<span id="display-time">
 			<%=display.format(calendar.getTime())%>
 		</span>
 		<div class="search-time">
 			<form action="day" method="post">
 				<label>Time : </label>
-				<input type="text" name="time" id="time" class="calpicker" value=""/>
+				<input type="text" name="time" id="time" class="calpicker" value="" readonly="readonly"/>
 				<input type="submit" class="btn" id="filter" value="Filter">
 			</form>
 		</div>

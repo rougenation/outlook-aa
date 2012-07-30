@@ -30,9 +30,4 @@
 		<name>Meeting room 6</name>
 		<mailbox>mr6@axonactive.vn</mailbox>
 	</room>
-	<room>
-		<id>7</id>
-		<name>Meeting room 7</name>
-		<mailbox>mr7@axonactive.vn</mailbox>
-	</room>
 </rooms>
