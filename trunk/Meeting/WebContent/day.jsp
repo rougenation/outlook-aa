@@ -147,7 +147,7 @@
 				%>
 										<td class='time' colspan="<%=(times.size() - j)%>">
 											<div title="<%=meeting.getSubject()%> (<%= meeting.getDisplayStart()%> - <%=meeting.getDisplayEnd() %>)" class='celldiv'>
-												<%=meeting.getSubject()%> (<%= meeting.getDisplayStart()%> - <%=df.format(meeting.getDisplayEnd()) %>)
+												<%=meeting.getSubject()%> (<%= meeting.getDisplayStart()%> - <%=df.format(meeting.getEndTime()) %>)
 											</div>
 										</td>
 				<%
