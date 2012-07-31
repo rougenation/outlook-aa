@@ -19,25 +19,6 @@
 <link rel="stylesheet" type="text/css" href="resources/css/jquery-ui-1.7.3.custom.css" />
 <script type="text/javascript" src="resources/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="resources/js/jquery-ui-1.7.3.custom.min.js"></script>
-
-<script type="text/javascript">
-	$('document').ready(function(){
-		$("#month-selection" ).datepicker({
-			numberOfMonths: 3,
-			onSelect: function(dateText, inst) {
-				$("#inputDate").val(dateText);
-				$('#target').submit();
-			}
-		});
-		$("#inputDate" ).datepicker({
-			changeMonth: true,
-			changeYear: true,
-			onSelect: function(dateText, inst) {
-				$("#inputDate").val(dateText);
-			}
-		});
-	});
-</script>
 </head>
 <body>
 	<%
@@ -205,6 +186,28 @@
 			</tbody>
 		</table>
 		<div class="view-mode"></div>
+		<script type="text/javascript">
+			$('document').ready(function(){
+				$("#month-selection" ).datepicker({
+					numberOfMonths: 3,
+					defaultDate : new Date('<%= dfDate.format(calendar.getTime())%>'),
+					onSelect: function(dateText, inst) {
+						$("#inputDate").val(dateText);
+						$('#target').submit();
+					}
+				});
+				$("#inputDate" ).datepicker({
+					showAnim : 'explode',
+					changeMonth: true,
+					changeYear: true,
+					defaultDate : new Date('<%= dfDate.format(calendar.getTime())%>'),
+					showButtonPanel: true,
+					onSelect: function(dateText, inst) {
+						$("#inputDate").val(dateText);
+					}
+				});
+			});
+		</script>
 	</div>
 </body>
 </html>
