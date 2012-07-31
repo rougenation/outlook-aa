@@ -79,7 +79,7 @@ public class DayController extends HttpServlet {
 			//list room
 			file_url = request.getServletContext().getRealPath("/WEB-INF/meeting_room.xml");
 			List<Room> rooms = new ArrayList<Room>();
-			rooms = Tool.getListRoom(file_url);
+			rooms = Tool.getListRoom(url,account.getUsername(), account.getPassword());
 			
 			//list meeting
 			List<Meeting> meetings = new ArrayList<Meeting>();

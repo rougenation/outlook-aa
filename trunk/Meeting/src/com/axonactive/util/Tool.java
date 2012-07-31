@@ -6,16 +6,21 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
-import java.util.TimeZone;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import microsoft.exchange.webservices.data.Appointment;
 import microsoft.exchange.webservices.data.CalendarView;
+import microsoft.exchange.webservices.data.EmailAddress;
 import microsoft.exchange.webservices.data.ExchangeCredentials;
 import microsoft.exchange.webservices.data.ExchangeService;
 import microsoft.exchange.webservices.data.FindItemsResults;
 import microsoft.exchange.webservices.data.FolderId;
 import microsoft.exchange.webservices.data.Mailbox;
+import microsoft.exchange.webservices.data.NameResolution;
+import microsoft.exchange.webservices.data.NameResolutionCollection;
 import microsoft.exchange.webservices.data.WebCredentials;
 import microsoft.exchange.webservices.data.WellKnownFolderName;
 
@@ -23,11 +28,9 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
 
-import sun.java2d.pipe.SpanShapeRenderer.Simple;
-
 import com.axonactive.dto.Account;
-import com.axonactive.dto.Room;
 import com.axonactive.dto.Meeting;
+import com.axonactive.dto.Room;
 import com.axonactive.dto.Time;
 
 public class Tool {
@@ -162,21 +165,50 @@ public class Tool {
 		return meetings;
 	}
 
-	public static List<Room> getListRoom(String file_url) {
+	public static List<Room> getListRoom(String url, String username,
+			String password) {
 		List<Room> rooms = new ArrayList<Room>();
 		try {
-			SAXBuilder builder = new SAXBuilder();
-			File xmlFile = new File(file_url);
-			Element node;
-			if (xmlFile.exists()) {
-				Document document = builder.build(xmlFile);
-				Element root = document.getRootElement();
-				List list = root.getChildren("room");
-				for (int i = 0; i < list.size(); i++) {
-					node = (Element) list.get(i);
-					rooms.add(new Room(node.getChildText("id"), 
-							node.getChildText("name"), node.getChildText("mailbox")));
-					System.out.println("ABC");
+//			SAXBuilder builder = new SAXBuilder();
+//			File xmlFile = new File(file_url);
+//			Element node;
+//			if (xmlFile.exists()) {
+//				Document document = builder.build(xmlFile);
+//				Element root = document.getRootElement();
+//				List list = root.getChildren("room");
+//				for (int i = 0; i < list.size(); i++) {
+//					node = (Element) list.get(i);
+//					rooms.add(new Room(node.getChildText("id"), 
+//							node.getChildText("name"), node.getChildText("mailbox")));
+//					System.out.println("ABC");
+//				}
+//			}
+			ExchangeService service = new ExchangeService();
+			ExchangeCredentials wc = new WebCredentials(username, password);
+			service.setCredentials(wc);
+			service.setUrl(new URI(url));
+			
+			NameResolutionCollection nrc = service.resolveName("mr"); // search with mr keyword
+			Iterator<NameResolution> ite = nrc.iterator(); // return to iterator
+			NameResolution object; // define an object to assign value
+			EmailAddress mailbox; // define an mailbox object
+			Room room; // define an room object
+			Pattern patternTag = Pattern.compile("^mr[1-9a-z]+"); // regular expression
+			Matcher matcherTag;
+			String mail = "";
+			while (ite.hasNext()) {
+				object = ite.next();
+				if (object != null && object.getMailbox() != null) {
+					mailbox = object.getMailbox();
+					mail = mailbox.getAddress();
+					matcherTag = patternTag.matcher(mail);
+					if(matcherTag.find()){
+						room = new Room();
+						System.out.println("EmailAddress = " +  mailbox.getAddress() + "-" + mailbox.getName());
+						room.setName(mailbox.getName());
+						room.setMailbox(mailbox.getAddress());
+						rooms.add(room);
+					}
 				}
 			}
 			System.out.println("Size : " + rooms.size());
