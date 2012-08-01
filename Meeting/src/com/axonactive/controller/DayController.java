@@ -31,7 +31,7 @@ public class DayController extends HttpServlet {
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("GET");
+//		System.out.println("GET");
 		try {
 			Calendar calendar;
 			if(request.getParameter("day") == null || request.getParameter("month") == null || request.getParameter("year") == null){
@@ -61,7 +61,7 @@ public class DayController extends HttpServlet {
 	}
 	
 	protected void view(HttpServletRequest request, HttpServletResponse response, Calendar calendar){
-		System.out.println("VIEW");
+//		System.out.println("VIEW");
 		try{
 			//list time
 			List<Time> times = new ArrayList<Time>();
@@ -101,7 +101,7 @@ public class DayController extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("POST");
+//		System.out.println("POST");
 		Calendar calendar;
 		try{
 			if(request.getParameter("time") != null){

@@ -80,7 +80,6 @@ public class Tool {
 	public static List<Meeting> getListMeeting(String url, String username,
 			String password, String mailbox, Date start, Date end) {
 		List<Meeting> meetings = new ArrayList<Meeting>();
-		System.out.println("List Meeintg");
 		try {
 //			Meeting meeting = new Meeting("1", "KFC", "Axon", "");
 //			Calendar time = Calendar.getInstance();
@@ -117,12 +116,12 @@ public class Tool {
 //			
 //			meeting = new Meeting("4", "Planning", "Axon", "");
 //			time = Calendar.getInstance();
-//			time.set(Calendar.HOUR_OF_DAY, 13);
-//			time.set(Calendar.MINUTE, 30);
+//			time.set(Calendar.HOUR_OF_DAY, 18);
+//			time.set(Calendar.MINUTE, 0);
 //			meeting.setStartTime(time.getTime());
 //			time = Calendar.getInstance();
-//			time.set(Calendar.HOUR_OF_DAY, 15);
-//			time.set(Calendar.MINUTE, 0);
+//			time.set(Calendar.HOUR_OF_DAY, 18);
+//			time.set(Calendar.MINUTE, 30);
 //			meeting.setEndTime(time.getTime());
 //			meetings.add(meeting);
 			
@@ -133,7 +132,7 @@ public class Tool {
 			
 			start.setHours(1);
 			start.setMinutes(0);
-			end.setHours(11);
+			end.setHours(12);
 			end.setMinutes(0);
 			System.out.println("Start : " + start);
 			System.out.println("End : " + end);
@@ -158,6 +157,7 @@ public class Tool {
 				System.out.println("A : " +app.getTimeZone() + " - " + simp.format(app.getStart()) + "-" + simp.format(app.getEnd()));
 				System.out.println("B : " +app.getTimeZone() + " - " + app.getStart() + "-" + app.getEnd());
 			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ArrayList<Meeting>();
@@ -204,7 +204,7 @@ public class Tool {
 					matcherTag = patternTag.matcher(mail);
 					if(matcherTag.find()){
 						room = new Room();
-						System.out.println("EmailAddress = " +  mailbox.getAddress() + "-" + mailbox.getName());
+//						System.out.println("EmailAddress = " +  mailbox.getAddress() + "-" + mailbox.getName());
 						room.setName(mailbox.getName());
 						room.setMailbox(mailbox.getAddress());
 						rooms.add(room);
