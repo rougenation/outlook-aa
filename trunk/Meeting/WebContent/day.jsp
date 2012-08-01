@@ -143,6 +143,7 @@
 							for(int j = 0; j < times.size(); j++){
 								meeting = meetings.get(index);
 								if(meeting.getDisplayStart().equals(times.get(j).getLabel())){
+									System.out.println("Subject : " + meeting.getSubject());
 									if((times.size() - j) <= meeting.getColspan()){
 				%>
 										<td class='time' colspan="<%=(times.size() - j)%>">
